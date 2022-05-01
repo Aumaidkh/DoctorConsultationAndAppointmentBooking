@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:nestedScrollingEnabled="true"
+        android:scrollbars="none"
+        android:background="@color/background_color"
+        android:layout_height="match_parent">
+
+        <!--Top Toolbar-->
+        <RelativeLayout
+            android:layout_gravity="top"
+            android:id="@+id/toolbarlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include android:id="@+id/toolbar" layout="@layout/snippet_top_toolbar" />
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_marginTop="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="none">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".presentation.ui.home_and_key_features.HomeActivity">
+
+
+                <!--Upcoming Schedule-->
+                <TextView
+                    android:id="@+id/upcomingScheduleText"
+                    style="@style/H1Style"
+                    android:text="Upcoming Schedules"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--See All-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="See all"
+                    android:textColor="@color/primary_color"
+                    app:layout_constraintBottom_toBottomOf="@id/upcomingScheduleText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/upcomingScheduleText" />
+
+                <!--Appointment Card-->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/upcomingScheduleCard"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="200dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/upcomingScheduleText">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_bg_gradient"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <!--Doctor name-->
+                            <TextView
+                                android:id="@+id/tvDoctorName"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:text="Doctor Arshid Hussain"
+                                android:textColor="@color/white"
+                                android:textSize="21sp" />
+
+                            <!--Doctor Speciality-->
+                            <TextView
+                                android:id="@+id/tv_doctor_speciality"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/poppins_medium"
+                                android:maxLines="1"
+                                android:text="Cardiologist"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+
+                            <!--Appointment Timings-->
+                            <RelativeLayout
+                                android:layout_width="150dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="24dp"
+                                android:background="@drawable/round_rectangle"
+                                android:padding="10dp">
+
+                                <!--Icon-->
+                                <ImageView
+                                    android:id="@+id/clockIcon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/clock_fill" />
+
+                                <!--Time-->
+                                <TextView
+                                    android:id="@+id/tvTiming"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_toEndOf="@id/clockIcon"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Feb 24, 9:00am"
+                                    android:textColor="@color/white" />
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <View
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="-20dp"
+                                android:background="@drawable/circle_shape" />
+
+                            <View
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginBottom="-20dp"
+                                android:background="@drawable/small_circle_shape" />
+
+                            <View
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:layout_gravity="top"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="-125dp"
+                                android:background="@drawable/circle_shape" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="-20dp"
+                                android:src="@drawable/doctor" />
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!--Categories Label-->
+                <TextView
+                    android:id="@+id/categoriesText"
+                    style="@style/H1Style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categories"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/upcomingScheduleCard" />
+
+                <!--See All-->
+                <TextView
+                    android:id="@+id/categoriesSeeAllText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="See all"
+                    android:textColor="@color/primary_color"
+                    app:layout_constraintBottom_toBottomOf="@id/categoriesText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/categoriesText" />
+
+                <!--Categories Buttons-->
+                <HorizontalScrollView
+                    android:id="@+id/categoriesPicker"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/categoriesSeeAllText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="0dp"
+                    android:scrollbars="none"
+                    android:nestedScrollingEnabled="true"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="83dp"
+                        android:orientation="horizontal">
+
+                        <!--Cardiology Button-->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_marginStart="16dp"
+                            app:cardElevation="0.3dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_width="110dp"
+                            android:layout_height="80dp">
+
+                            <LinearLayout
+                                android:padding="8dp"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:weightSum="3"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_weight="2"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_width="70dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/heart" />
+
+                                <TextView
+                                    android:text="Cardiology"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="@color/black"
+                                    android:layout_height="0dp" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_marginStart="16dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="0.3dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_width="110dp"
+                            android:layout_height="80dp">
+
+                            <LinearLayout
+                                android:padding="8dp"
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:weightSum="3"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_weight="2"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/epidermis" />
+
+                                <TextView
+                                    android:text="Dermatology"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="@color/black"
+                                    android:layout_height="0dp" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!--Gastro-->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_marginStart="16dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="0.3dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_width="110dp"
+                            android:layout_height="80dp">
+
+                            <LinearLayout
+                                android:padding="8dp"
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:weightSum="3"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_weight="2"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/stomach" />
+
+                                <TextView
+                                    android:text="Gastro"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="@color/black"
+                                    android:layout_height="0dp" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!--Covid-->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_marginStart="16dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="0.3dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_width="110dp"
+                            android:layout_height="80dp">
+
+                            <LinearLayout
+                                android:padding="8dp"
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:weightSum="3"
+                                android:layout_marginEnd="16dp"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_weight="2"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/coronavirus" />
+
+                                <TextView
+                                    android:text="Covid 19"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="@color/black"
+                                    android:layout_height="0dp" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <!--Categories Label-->
+                <TextView
+                    android:id="@+id/popularDoctorsText"
+                    style="@style/H1Style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Popular Doctors"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/categoriesPicker" />
+
+                <!--Popular Doctors-->
+                <LinearLayout
+                    app:layout_constraintTop_toBottomOf="@id/popularDoctorsText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/rv_doctor_item" />
+
+                    <include layout="@layout/rv_doctor_item" />
+
+                    <include layout="@layout/rv_doctor_item" />
+
+                    <include layout="@layout/rv_doctor_item" />
+
+                    <include layout="@layout/rv_doctor_item" />
+
+                    <include layout="@layout/rv_doctor_item" />
+
+                    <include layout="@layout/rv_doctor_item" />
+
+                    <include layout="@layout/rv_doctor_item" />
+
+                    <include layout="@layout/rv_doctor_item" />
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android.doctorce.presentation.ui.home_and_key_features.fragments.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_searchDoctorActivity"
+            app:destination="@id/searchDoctorActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_doctorDetailsActivity"
+            app:destination="@id/doctorDetailsActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/findSpecialistsFragment"
+        android:name="com.android.doctorce.presentation.ui.home_and_key_features.fragments.FindSpecialistsFragment"
+        android:label="FindSpecialistsFragment" />
+    <fragment
+        android:id="@+id/myAppointmentsFragment"
+        android:name="com.android.doctorce.presentation.ui.home_and_key_features.fragments.MyAppointmentsFragment"
+        android:label="MyAppointmentsFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.android.doctorce.presentation.ui.home_and_key_features.fragments.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfile"
+            app:destination="@id/editProfile" />
+    </fragment>
+    <activity
+        android:id="@+id/editProfile"
+        android:name="com.android.doctorce.presentation.ui.profile.EditProfile"
+        android:label="activity_edit_profile"
+        tools:layout="@layout/activity_edit_profile" />
+    <activity
+        android:id="@+id/searchDoctorActivity"
+        android:name="com.android.doctorce.presentation.ui.appointment.SearchDoctorActivity"
+        android:label="SearchDoctorActivity" />
+    <activity
+        android:id="@+id/doctorDetailsActivity"
+        android:name="com.android.doctorce.presentation.ui.appointment.DoctorDetailsActivity"
+        android:label="DoctorDetailsActivity" />
+</navigation>

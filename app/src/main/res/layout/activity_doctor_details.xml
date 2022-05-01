@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        tools:context=".presentation.ui.appointment.DoctorDetailsActivity">
+
+        <RelativeLayout
+            android:id="@+id/toolbarlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/btnBack"
+                layout="@layout/card_back_button" />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnFavorite"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="4dp"
+                android:layout_toStartOf="@id/btnShare"
+                app:cardBackgroundColor="#ECF1FB"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/heart_hollow"
+                    app:tint="@color/primary_color" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!--share button-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnShare"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="#ECF1FB"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/share_1_"
+                    app:tint="@color/primary_color" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarlayout">
+
+            <!--Doctor Image-->
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/face"
+                    app:shapeAppearance="@style/CircleImage"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="3dp" />
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="end|bottom"
+                    android:background="@drawable/blue_background_color_circle_shape"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_sethescope"
+                    app:tint="@color/primary_color" />
+
+            </FrameLayout>
+
+            <!--Doctor Details-->
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_weight="3">
+
+
+                <!--Details Layout-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <!--Doctors Name-->
+                    <TextView
+                        android:id="@+id/tvDoctorName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/gilroy_bold"
+                        android:maxLines="1"
+                        android:text="Dr. Shakib Khan"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/bold_heading1" />
+
+                    <!--Reviews and ratings-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/star_fill_1_"
+                            app:tint="@color/primary_color" />
+
+                        <TextView
+                            android:id="@+id/tvTotalRatings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/gilroy_medium"
+                            android:maxLines="1"
+                            android:text="4.9"
+                            android:textColor="#99000000"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalReviews"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/gilroy_medium"
+                            android:maxLines="1"
+                            android:text="(499 reviews)"
+                            android:textColor="#99000000"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <!--Speciality and hospital-->
+                    <TextView
+                        android:id="@+id/tvDoctorSpecialityAndPosting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:maxLines="1"
+                        android:text="Psychologist . Asian Hospital"
+                        android:textColor="#99000000"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+        <!--Tiles Section-->
+
+        <FrameLayout
+            android:id="@+id/frameLayout6"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/acheivement_card_background"
+            android:paddingBottom="25dp"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/semi_round_orange_shape"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/outline_star_1"
+                        app:tint="#FF9800" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/gilroy_semibold"
+                    android:text="4.9"
+                    android:textSize="@dimen/bold_heading2"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:maxLines="1"
+                    android:text="Ratings"
+                    android:textColor="#99000000"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout4"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/acheivement_card_background"
+            android:paddingBottom="25dp"
+            app:layout_constraintEnd_toStartOf="@+id/frameLayout6"
+            app:layout_constraintStart_toEndOf="@+id/frameLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/semi_round_red_shape"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/medal"
+                        app:tint="#F44336" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/gilroy_semibold"
+                    android:text="5 Yr+"
+                    android:textSize="@dimen/bold_heading2"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:maxLines="1"
+                    android:text="Experience"
+                    android:textColor="#99000000"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout5"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/acheivement_card_background"
+            android:paddingBottom="25dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/semi_round_blue_shape"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/people"
+                        app:tint="@color/primary_color" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/bold_heading2"
+                    android:fontFamily="@font/gilroy_semibold"
+                    android:text="1000+"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:maxLines="1"
+                    android:text="Patients"
+                    android:textColor="#99000000"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <!--About Section-->
+        <TextView
+            android:id="@+id/aboutDoctorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="About Doctor"
+            android:textColor="@color/black"
+            android:textSize="@dimen/bold_heading1"
+            app:layout_constraintStart_toStartOf="@+id/frameLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout5" />
+
+        <!--Doctor Description-->
+        <TextView
+            android:id="@+id/tvDoctorDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/gilroy_regular"
+            android:lineHeight="18dp"
+            android:maxLines="4"
+            android:text="@string/dummy_doctor_decr"
+            android:textColor="#99000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/frameLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/aboutDoctorText" />
+
+        <!--Working Time-->
+        <TextView
+            android:id="@+id/workingTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="Working Time"
+            android:textColor="@color/black"
+            android:textSize="@dimen/bold_heading1"
+            app:layout_constraintStart_toStartOf="@+id/frameLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/tvDoctorDesc" />
+
+        <TextView
+            android:id="@+id/tvWorkingTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/gilroy_regular"
+            android:maxLines="1"
+            android:text="Mon - Sat (8:30 AM - 09:00 PM)"
+            android:textColor="#99000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/frameLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/workingTimeText" />
+
+        <!--Schedule -->
+        <TextView
+            android:id="@+id/scheduleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="Schedule"
+            android:textColor="@color/black"
+            android:textSize="@dimen/bold_heading1"
+            app:layout_constraintStart_toStartOf="@+id/frameLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/tvWorkingTime" />
+
+        <!--Calendar Icon-->
+        <ImageView
+            android:id="@+id/btnCalendar"
+            android:padding="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/calendar_week"
+            app:layout_constraintBottom_toBottomOf="@+id/scheduleText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/scheduleText"
+            app:tint="#99000000" />
+
+        <!--Timing Chips-->
+        <HorizontalScrollView
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/scheduleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <include layout="@layout/chip_layout"/>
+                <include layout="@layout/chip_layout"/>
+                <include layout="@layout/chip_layout"/>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:paddingTop="12dp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/primary_chip_background"
+                    android:layout_height="80dp">
+
+                    <!--Day-->
+                    <TextView
+                        android:id="@+id/tvDay"
+                        android:text="Sat"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:layout_gravity="top|center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <RelativeLayout
+                        android:layout_gravity="bottom|center"
+                        android:layout_width="40dp"
+                        android:background="@drawable/white_circle_shape"
+                        android:layout_height="40dp">
+
+                        <TextView
+                            android:id="@+id/tvDate"
+                            android:text="14"
+                            android:textColor="@color/primary_color"
+                            android:fontFamily="@font/gilroy_medium"
+                            android:layout_centerInParent="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+
+                </FrameLayout>
+
+                <include layout="@layout/chip_layout"/>
+                <include layout="@layout/chip_layout"/>
+                <include layout="@layout/chip_layout"/>
+
+
+
+            </LinearLayout>
+
+
+
+        </HorizontalScrollView>
+
+        <!--Book Appointment-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBookAppointment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp"
+            style="@style/CustomButtonStyle"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="Book appointment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

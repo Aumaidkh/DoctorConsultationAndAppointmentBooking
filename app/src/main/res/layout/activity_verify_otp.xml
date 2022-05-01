@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
+
+        <!--Toolbar-->
+        <RelativeLayout
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="24dp"
+            android:id="@+id/toolbarlayout"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/btnBack"
+                layout="@layout/card_back_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Verification Code"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginTop="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Select which contact to choose-->
+            <TextView
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="40dp"
+                android:text="Enter the code we sent to you"
+                android:textColor="@color/black"
+                android:layout_gravity="start"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--Pin View-->
+            <com.chaos.view.PinView
+                android:id="@+id/firstPinView"
+                style="@style/PinWidget.PinView"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:layout_marginTop="24dp"
+                android:inputType="number"
+                android:textColor="@color/primary_text_color"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cursorColor="@color/blue"
+                app:cursorWidth="2dp"
+                app:hideLineWhenFilled="true"
+                app:itemCount="5"
+                app:itemHeight="60dp"
+                app:itemRadius="8dp"
+                app:itemSpacing="18dp"
+                app:itemWidth="60dp"
+                android:itemBackground="@color/white"
+                app:lineColor="@android:color/white"
+                app:lineWidth="2dp"
+                app:viewType="rectangle" />
+
+            <!--Button-->
+            <com.google.android.material.button.MaterialButton
+                android:layout_gravity="bottom"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="40dp"
+                android:text="Verify"
+                android:id="@+id/btnVerify"
+                app:cornerRadius="13dp"
+                style="@style/CustomButtonStyle" />
+
+            <RelativeLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/didntReceiveCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Didn't receive the code?"
+                    android:textColor="@color/material_on_background_disabled"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/btnResend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@id/didntReceiveCode"
+                    android:fontFamily="@font/poppins"
+                    android:text="Resend"
+                    android:textColor="@color/primary_color"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

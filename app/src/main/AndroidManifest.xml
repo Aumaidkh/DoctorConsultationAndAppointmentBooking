@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.doctorce">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Doctorce">
+        <activity
+            android:name=".presentation.ui.doctor_counseling.PaymentSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.doctor_counseling.BookAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.appointment.DoctorDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.profile.EditProfile"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.sign_up_process.VerifyOtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.sign_up_process.NewPasswordSetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.sign_up_process.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.appointment.SearchDoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.sign_up_process.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.sign_up_process.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.home_and_key_features.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.splash.SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

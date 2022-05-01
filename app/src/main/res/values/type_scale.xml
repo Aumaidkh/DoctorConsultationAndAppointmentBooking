@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bold_heading1">22sp</dimen>
+    <dimen name="bold_heading2">18sp</dimen>
+
+    <dimen name="semi_bold_title1">16sp</dimen>
+    <dimen name="semi_bold_title2">12sp</dimen>
+
+    <dimen name="medium_subtitle1">14sp</dimen>
+    <dimen name="medium_subtitle2">10sp</dimen>
+
+    <dimen name="regular_body1">12sp</dimen>
+    <dimen name="regular_body2">10sp</dimen>
+
+</resources>

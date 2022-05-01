@@ -1,0 +1,130 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_width="match_parent"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="12dp"
+        android:layout_height="150dp">
+
+        <RelativeLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Doctor Image-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_image"
+                android:layout_width="130dp"
+                app:cardCornerRadius="10dp"
+                android:elevation="0dp"
+                android:layout_margin="5dp"
+                android:layout_height="140dp">
+
+                <ImageView
+                    android:id="@+id/iv_doctor_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/doctor" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_toEndOf="@id/cv_image"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--Doctor Name-->
+                    <TextView
+                        android:id="@+id/tv_doctor_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="Dr. Arshid Hussain"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <!--Ratings -->
+                    <TextView
+                        android:layout_toStartOf="@id/ic_star"
+                        android:id="@+id/tv_ratings"
+                        android:layout_width="wrap_content"
+                        android:text="4.5"
+                        android:textColor="@color/blue"
+                        android:textSize="10sp"
+                        android:layout_marginEnd="2dp"
+                        android:fontFamily="@font/poppins"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <ImageView
+                        android:id="@+id/ic_star"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="12dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/outline_star_1" />
+
+                </RelativeLayout>
+
+
+
+                <!--Speciality-->
+                <TextView
+                    android:id="@+id/tv_doctor_speciality"
+                    android:layout_width="wrap_content"
+                    android:text="Phsychatriast"
+                    android:textSize="10sp"
+                    android:layout_marginTop="-4dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_doctor_desc"
+                    android:layout_width="wrap_content"
+                    android:text="This is going to be the doctor\ndescription and we have\nno idea what it looks like"
+                    android:textSize="9sp"
+                    android:layout_marginTop="-4dp"
+                    android:textColor="@color/secondary_text_color"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_book_appointment"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    app:strokeColor="@color/blue"
+                    android:text="Book Appointment"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/poppins"
+                    android:insetBottom="2dp"
+                    android:insetTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

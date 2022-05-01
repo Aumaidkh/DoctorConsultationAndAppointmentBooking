@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="0.2dp"
+    android:layout_marginTop="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Doctor Image-->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:src="@drawable/face"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/RoundCornerImage"
+            android:layout_height="wrap_content"/>
+
+        <!--Doctor Details-->
+        <FrameLayout
+            android:layout_marginStart="16dp"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content">
+
+            <!--Three Dots-->
+            <ImageButton
+                android:layout_gravity="end"
+                android:src="@drawable/ic_more"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!--Details Layout-->
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!--Doctors Name-->
+                <TextView
+                    android:id="@+id/tvDoctorName"
+                    android:layout_width="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="15sp"
+                    android:text="Dr. Shakib Khan"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+                <!--Doctor Speciality and Posting-->
+                <TextView
+                    android:id="@+id/tvDoctorSpecialityAndPosting"
+                    android:layout_width="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="12sp"
+                    android:textColor="@color/secondary_text_color"
+                    android:text="Dental . Asian Hospital"
+                    android:layout_height="wrap_content"/>
+
+                <!--Ratings-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RatingBar
+                        android:id="@+id/rbDoctorRatings"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:numStars="5"
+                        android:theme="@style/YellowRatingsBar"
+                        android:rating="4" />
+
+                    <TextView
+                        android:id="@+id/tvTotalRatings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/rbDoctorRatings"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins"
+                        android:maxLines="1"
+                        android:text="(365)"
+                        android:textColor="@color/secondary_text_color"
+                        android:textSize="11sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
