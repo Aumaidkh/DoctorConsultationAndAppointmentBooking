@@ -111,35 +111,45 @@
 
         </LinearLayout>
 
-
-        <ScrollView
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAppointments"
+            tools:listitem="@layout/rv_appointment_item"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:nestedScrollingEnabled="false"
-            android:scrollbars="none"
-            android:clipToPadding="false"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-            <LinearLayout
-                android:paddingBottom="185dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
 
-                <include layout="@layout/rv_appointment_item"/>
-                <include layout="@layout/rv_appointment_item"/>
-                <include layout="@layout/rv_appointment_item"/>
-                <include layout="@layout/rv_appointment_item"/>
-                <include layout="@layout/rv_appointment_item"/>
-                <include layout="@layout/rv_appointment_item"/>
-                <include layout="@layout/rv_appointment_item"/>
+<!--        <ScrollView-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/linearLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:nestedScrollingEnabled="false"-->
+<!--            android:scrollbars="none"-->
+<!--            android:clipToPadding="false"-->
+<!--            app:layout_constraintHorizontal_bias="0.5"-->
+<!--            app:layout_constraintStart_toStartOf="parent">-->
 
-            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:paddingBottom="185dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
 
-        </ScrollView>
+<!--                <include layout="@layout/rv_appointment_item"/>-->
+<!--                <include layout="@layout/rv_appointment_item"/>-->
+<!--                <include layout="@layout/rv_appointment_item"/>-->
+<!--                <include layout="@layout/rv_appointment_item"/>-->
+<!--                <include layout="@layout/rv_appointment_item"/>-->
+<!--                <include layout="@layout/rv_appointment_item"/>-->
+<!--                <include layout="@layout/rv_appointment_item"/>-->
+
+<!--            </LinearLayout>-->
+
+<!--        </ScrollView>-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

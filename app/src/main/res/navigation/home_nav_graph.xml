@@ -22,7 +22,7 @@
         android:label="FindSpecialistsFragment" />
     <fragment
         android:id="@+id/myAppointmentsFragment"
-        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features.fragments.MyAppointmentsFragment"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features.fragments.my_appointments.MyAppointmentsFragment"
         android:label="MyAppointmentsFragment" />
     <fragment
         android:id="@+id/profileFragment"
