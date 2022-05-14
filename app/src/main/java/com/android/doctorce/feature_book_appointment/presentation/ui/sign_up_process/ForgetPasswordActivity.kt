@@ -1,4 +1,4 @@
-package com.android.doctorce.presentation.ui.sign_up_process
+package com.android.doctorce.feature_book_appointment.presentation.ui.sign_up_process
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

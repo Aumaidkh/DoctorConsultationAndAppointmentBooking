@@ -1,4 +1,4 @@
-package com.android.doctorce.presentation.ui.appointment
+package com.android.doctorce.feature_book_appointment.presentation.ui.appointment
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.android.doctorce.R
 import com.android.doctorce.databinding.ActivityDoctorDetailsBinding
-import com.android.doctorce.presentation.ui.doctor_counseling.BookAppointmentActivity
+import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_counseling.BookAppointmentActivity
 import com.google.android.material.datepicker.MaterialDatePicker
 
 class DoctorDetailsActivity : AppCompatActivity() {

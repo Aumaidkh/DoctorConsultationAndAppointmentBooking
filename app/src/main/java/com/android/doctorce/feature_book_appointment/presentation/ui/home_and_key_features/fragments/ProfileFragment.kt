@@ -1,4 +1,4 @@
-package com.android.doctorce.presentation.ui.home_and_key_features.fragments
+package com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

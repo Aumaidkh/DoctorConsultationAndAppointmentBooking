@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary_color"
     android:fitsSystemWindows="true"
-    tools:context=".presentation.ui.splash.SplashScreenActivity">
+    tools:context=".feature_book_appointment.presentation.ui.splash.SplashScreenActivity">
 
     <include
         layout="@layout/logo"

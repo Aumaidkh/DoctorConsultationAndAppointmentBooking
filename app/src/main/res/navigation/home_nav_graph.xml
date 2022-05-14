@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.android.doctorce.presentation.ui.home_and_key_features.fragments.HomeFragment"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features.fragments.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_searchDoctorActivity"
@@ -18,15 +18,15 @@
     </fragment>
     <fragment
         android:id="@+id/findSpecialistsFragment"
-        android:name="com.android.doctorce.presentation.ui.home_and_key_features.fragments.FindSpecialistsFragment"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features.fragments.FindSpecialistsFragment"
         android:label="FindSpecialistsFragment" />
     <fragment
         android:id="@+id/myAppointmentsFragment"
-        android:name="com.android.doctorce.presentation.ui.home_and_key_features.fragments.MyAppointmentsFragment"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features.fragments.MyAppointmentsFragment"
         android:label="MyAppointmentsFragment" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.android.doctorce.presentation.ui.home_and_key_features.fragments.ProfileFragment"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features.fragments.ProfileFragment"
         android:label="ProfileFragment" >
         <action
             android:id="@+id/action_profileFragment_to_editProfile"
@@ -34,15 +34,15 @@
     </fragment>
     <activity
         android:id="@+id/editProfile"
-        android:name="com.android.doctorce.presentation.ui.profile.EditProfile"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.profile.EditProfile"
         android:label="activity_edit_profile"
         tools:layout="@layout/activity_edit_profile" />
     <activity
         android:id="@+id/searchDoctorActivity"
-        android:name="com.android.doctorce.presentation.ui.appointment.SearchDoctorActivity"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.SearchDoctorActivity"
         android:label="SearchDoctorActivity" />
     <activity
         android:id="@+id/doctorDetailsActivity"
-        android:name="com.android.doctorce.presentation.ui.appointment.DoctorDetailsActivity"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.DoctorDetailsActivity"
         android:label="DoctorDetailsActivity" />
 </navigation>

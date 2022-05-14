@@ -1,4 +1,4 @@
-package com.android.doctorce.presentation.ui.profile
+package com.android.doctorce.feature_book_appointment.presentation.ui.profile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
 import com.android.doctorce.R
 import com.android.doctorce.databinding.ActivityEditProfileBinding

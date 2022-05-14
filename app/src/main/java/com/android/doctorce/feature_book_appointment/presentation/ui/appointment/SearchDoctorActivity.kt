@@ -1,4 +1,4 @@
-package com.android.doctorce.presentation.ui.appointment
+package com.android.doctorce.feature_book_appointment.presentation.ui.appointment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -10,43 +10,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doctorce">
         <activity
-            android:name=".presentation.ui.doctor_counseling.PaymentSuccessActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.doctor_counseling.PaymentSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.doctor_counseling.BookAppointmentActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.doctor_counseling.BookAppointmentActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.appointment.DoctorDetailsActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.DoctorDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.profile.EditProfile"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.profile.EditProfile"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.sign_up_process.VerifyOtpActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.sign_up_process.VerifyOtpActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.sign_up_process.NewPasswordSetActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.sign_up_process.NewPasswordSetActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.sign_up_process.ForgetPasswordActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.sign_up_process.ForgetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.appointment.SearchDoctorActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.SearchDoctorActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.sign_up_process.SignUpActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.sign_up_process.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.sign_up_process.LoginActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.sign_up_process.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.home_and_key_features.HomeActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.splash.SplashScreenActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.splash.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

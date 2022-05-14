@@ -1,11 +1,10 @@
-package com.android.doctorce.presentation.ui.home_and_key_features
+package com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.android.doctorce.R
 import com.android.doctorce.databinding.ActivityHomeBinding
 

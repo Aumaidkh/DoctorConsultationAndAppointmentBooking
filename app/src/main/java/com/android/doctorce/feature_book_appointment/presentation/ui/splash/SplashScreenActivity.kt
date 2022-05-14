@@ -1,4 +1,4 @@
-package com.android.doctorce.presentation.ui.splash
+package com.android.doctorce.feature_book_appointment.presentation.ui.splash
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,7 +9,7 @@ import android.os.Looper
 import android.view.View
 import android.view.WindowManager
 import com.android.doctorce.R
-import com.android.doctorce.presentation.ui.sign_up_process.LoginActivity
+import com.android.doctorce.feature_book_appointment.presentation.ui.sign_up_process.LoginActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
