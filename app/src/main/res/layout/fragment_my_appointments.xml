@@ -63,7 +63,6 @@
 
             <!--Upcoming-->
             <com.google.android.material.card.MaterialCardView
-                app:strokeColor="@color/primary_color"
                 android:id="@+id/upcomingCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -71,7 +70,8 @@
                 android:layout_marginBottom="4dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="0.3dp">
+                app:cardElevation="0.3dp"
+                app:strokeColor="@color/primary_color">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,7 +87,6 @@
 
             <!--Past-->
             <com.google.android.material.card.MaterialCardView
-                app:strokeColor="@color/primary_color"
                 android:id="@+id/pastCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -95,7 +94,8 @@
                 android:layout_marginBottom="4dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="0.3dp">
+                app:cardElevation="0.3dp"
+                app:strokeColor="@color/primary_color">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -113,43 +113,24 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvAppointments"
-            tools:listitem="@layout/rv_appointment_item"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:listitem="@layout/rv_appointment_item" />
 
-
-<!--        <ScrollView-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/linearLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            android:nestedScrollingEnabled="false"-->
-<!--            android:scrollbars="none"-->
-<!--            android:clipToPadding="false"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toStartOf="parent">-->
-
-<!--            <LinearLayout-->
-<!--                android:paddingBottom="185dp"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical">-->
-
-<!--                <include layout="@layout/rv_appointment_item"/>-->
-<!--                <include layout="@layout/rv_appointment_item"/>-->
-<!--                <include layout="@layout/rv_appointment_item"/>-->
-<!--                <include layout="@layout/rv_appointment_item"/>-->
-<!--                <include layout="@layout/rv_appointment_item"/>-->
-<!--                <include layout="@layout/rv_appointment_item"/>-->
-<!--                <include layout="@layout/rv_appointment_item"/>-->
-
-<!--            </LinearLayout>-->
-
-<!--        </ScrollView>-->
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,21 +15,20 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:weightSum="4"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <!--Doctor Image-->
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_weight="1"
-                android:layout_width="0dp"
+                android:layout_width="100dp"
+                android:layout_gravity="center_vertical"
                 android:id="@+id/ivDoctor"
                 android:src="@drawable/face"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 app:shapeAppearance="@style/CircleImage"
-                android:layout_height="wrap_content" />
+                android:layout_height="100dp" />
 
             <!--Doctor Details-->
             <FrameLayout

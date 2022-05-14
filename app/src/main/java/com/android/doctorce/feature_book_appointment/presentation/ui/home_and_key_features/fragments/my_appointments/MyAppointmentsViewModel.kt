@@ -1,5 +1,6 @@
 package com.android.doctorce.feature_book_appointment.presentation.ui.home_and_key_features.fragments.my_appointments
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.doctorce.feature_book_appointment.data.util.Resource
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private const val TAG = "MyAppointmentsViewModel"
 @HiltViewModel
 class MyAppointmentsViewModel @Inject constructor(
     private val appointmentRepository: AppointmentRepository
@@ -25,9 +27,11 @@ class MyAppointmentsViewModel @Inject constructor(
         when(event){
             is MyAppointmentsEvent.UpComingClick -> {
                 getAllAppointments()
+                Log.d(TAG, "onEvent: UpComingClick")
             }
             is MyAppointmentsEvent.PastClick -> {
                 getAllAppointments()
+                Log.d(TAG, "onEvent: PastClick")
             }
         }
     }
@@ -38,7 +42,7 @@ class MyAppointmentsViewModel @Inject constructor(
                 when(result) {
                     is Resource.Success -> {
                         result.data?.let { appointments ->
-                            state.value = state.value.copy(appointments = appointments)
+                            state.value = state.value.copy(isLoading = false, appointments = appointments)
                         }
                     }
                     is Resource.Error -> Unit

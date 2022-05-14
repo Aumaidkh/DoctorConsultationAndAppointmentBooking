@@ -66,13 +66,23 @@ class MyAppointmentsFragment: Fragment() {
         lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
                 if (it.isLoading) {
-                    Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show()
+                    binding.apply {
+                        progressBar3.visibility = View.VISIBLE
+                        rvAppointments.visibility = View.GONE
+                    }
+
                 } else {
+                    binding.apply {
+                        progressBar3.visibility = View.GONE
+                        rvAppointments.visibility = View.VISIBLE
+                    }
                     appointmentAdapter.submitList(it.appointments)
                 }
             }
         }
     }
+
+
 
     private fun setupOnClickListeners() {
         binding.apply {
