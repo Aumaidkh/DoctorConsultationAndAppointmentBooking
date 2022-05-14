@@ -65,16 +65,9 @@ class MyAppointmentsFragment: Fragment() {
     private fun setupObservers() {
         lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
-                if (it.isLoading) {
-                    binding.apply {
-                        progressBar3.visibility = View.VISIBLE
-                        rvAppointments.visibility = View.GONE
-                    }
-
-                } else {
+                if (!it.isLoading) {
                     binding.apply {
                         progressBar3.visibility = View.GONE
-                        rvAppointments.visibility = View.VISIBLE
                     }
                     appointmentAdapter.submitList(it.appointments)
                 }
