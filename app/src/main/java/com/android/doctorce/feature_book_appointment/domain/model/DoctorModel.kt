@@ -1,7 +1,9 @@
 package com.android.doctorce.feature_book_appointment.domain.model
 
-import com.google.gson.annotations.SerializedName
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class DoctorModel(
     val name: String,
     val speciality: String,
@@ -11,11 +13,12 @@ data class DoctorModel(
     val portfolioModel: DoctorPortfolioModel,
     val consultationFee: Double
 
-)
+): Parcelable
 
+@Parcelize
 data class DoctorPortfolioModel(
     val numberOfPatients: Int,
     val experienceInYears: Int,
     val totalReviews: Int,
     val totalRatings: Int,
-)
+): Parcelable

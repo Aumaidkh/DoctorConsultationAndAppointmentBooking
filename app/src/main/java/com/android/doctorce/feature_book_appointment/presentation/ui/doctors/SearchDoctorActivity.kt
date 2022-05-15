@@ -1,5 +1,6 @@
 package com.android.doctorce.feature_book_appointment.presentation.ui.doctors
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.android.doctorce.R
 import com.android.doctorce.databinding.ActivitySearchDoctorsBinding
 import com.android.doctorce.feature_book_appointment.domain.model.DoctorModel
+import com.android.doctorce.feature_book_appointment.presentation.ui.appointment.DoctorDetailsActivity
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctors.adapters.DoctorAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -68,6 +70,12 @@ class SearchDoctorActivity : AppCompatActivity() {
     }
 
     private fun onDoctorClicked(doctor: DoctorModel){
+        val doctorDescriptionIntent = Intent(this,DoctorDetailsActivity::class.java)
+        doctorDescriptionIntent.putExtra(DOCTOR,doctor)
+        startActivity(doctorDescriptionIntent)
+    }
 
+    companion object {
+        const val DOCTOR = "doctor"
     }
 }

@@ -90,6 +90,7 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="100dp"
+                    android:id="@+id/ivDoctor"
                     android:layout_height="100dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
@@ -232,6 +233,7 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/tvRatingsOnCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
@@ -288,6 +290,7 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/tvExperience"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
@@ -345,6 +348,7 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/tvTotalPatients"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
