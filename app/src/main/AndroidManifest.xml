@@ -34,7 +34,7 @@
             android:name="com.android.doctorce.feature_book_appointment.presentation.ui.sign_up_process.ForgetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.SearchDoctorActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.doctors.SearchDoctorActivity"
             android:exported="false" />
         <activity
             android:name="com.android.doctorce.feature_book_appointment.presentation.ui.sign_up_process.SignUpActivity"

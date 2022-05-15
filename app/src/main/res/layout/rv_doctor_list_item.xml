@@ -1,85 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="15dp"
-    app:cardElevation="0.2dp"
-    android:layout_marginTop="20dp"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:paddingTop="20dp"
-        android:paddingEnd="30dp"
-        android:paddingStart="30dp"
-        android:paddingBottom="20dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        app:cardCornerRadius="15dp"
+        app:cardElevation="0.2dp"
+        android:layout_marginTop="20dp">
 
-        <!--Doctor Image-->
-        <com.google.android.material.imageview.ShapeableImageView
-            app:shapeAppearance="@style/CircleImage"
-            android:scaleType="centerCrop"
-            android:src="@drawable/face"
-            android:layout_width="60dp"
-            android:layout_height="60dp"/>
-
-        <!--Doctor Name-->
-        <TextView
-            android:layout_marginTop="10dp"
-            android:id="@+id/tvDoctorName"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textColor="@color/black"
-            android:fontFamily="@font/gilroy_semibold"
-            android:textSize="@dimen/bold_heading2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:paddingTop="20dp"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:paddingBottom="20dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dr. Klimish J"/>
+            android:orientation="vertical">
 
-        <!--Speciality-->
-        <TextView
-            android:layout_marginTop="2dp"
-            android:id="@+id/tvDoctorSpeciality"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textColor="#99000000"
-            android:fontFamily="@font/gilroy_medium"
-            android:textSize="@dimen/medium_subtitle1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Surgeon"/>
+            <!--Doctor Image-->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivDoctorImage"
+                app:shapeAppearance="@style/CircleImage"
+                android:scaleType="centerCrop"
+                android:src="@drawable/face"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
 
-        <TextView
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:background="@drawable/round_background_color_rectangle"
-            android:layout_marginTop="20dp"
-            android:id="@+id/tvAppointment"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textColor="@color/black"
-            android:fontFamily="@font/gilroy_medium"
-            android:textSize="@dimen/medium_subtitle1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Appointment"/>
+            <!--Doctor Name-->
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/tvDoctorName"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:fontFamily="@font/gilroy_semibold"
+                android:textSize="@dimen/bold_heading2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr. Klimish J" />
 
-        <!--Appointment Chip-->
-        <RelativeLayout
-            android:padding="2dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            <!--Speciality-->
+            <TextView
+                android:layout_marginTop="2dp"
+                android:id="@+id/tvDoctorSpeciality"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="#99000000"
+                android:fontFamily="@font/gilroy_medium"
+                android:textSize="@dimen/medium_subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Surgeon" />
+
+            <TextView
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:background="@drawable/round_background_color_rectangle"
+                android:layout_marginTop="20dp"
+                android:id="@+id/tvAppointment"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:fontFamily="@font/gilroy_medium"
+                android:textSize="@dimen/medium_subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Appointment" />
+
+            <!--Appointment Chip-->
+            <RelativeLayout
+                android:padding="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
 
+            </RelativeLayout>
 
-        </RelativeLayout>
 
+        </LinearLayout>
 
-    </LinearLayout>
-
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

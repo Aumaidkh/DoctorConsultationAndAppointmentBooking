@@ -39,7 +39,7 @@
         tools:layout="@layout/activity_edit_profile" />
     <activity
         android:id="@+id/searchDoctorActivity"
-        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.SearchDoctorActivity"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.doctors.SearchDoctorActivity"
         android:label="SearchDoctorActivity" />
     <activity
         android:id="@+id/doctorDetailsActivity"
