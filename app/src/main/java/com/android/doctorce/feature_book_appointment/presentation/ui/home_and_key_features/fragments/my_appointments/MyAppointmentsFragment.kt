@@ -54,6 +54,11 @@ class MyAppointmentsFragment: Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        setupObservers()
+    }
+
 
     private fun setupRecyclerView() {
         binding.rvAppointments.apply {

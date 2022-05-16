@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
@@ -37,6 +38,7 @@ class SearchDoctorActivity : AppCompatActivity() {
 
         doctorAdapter = DoctorAdapter { doctor -> onDoctorClicked(doctor)}
         setupRecyclerView()
+        setupObservers()
         setonClickListeners()
     }
 
@@ -55,16 +57,17 @@ class SearchDoctorActivity : AppCompatActivity() {
             viewModel.state.collect { state ->
                 if (!state.isLoading){
                     doctorAdapter.submitList(state.doctors)
-                }else{
-                    Log.d(TAG, "Loading")
+                    binding.progressBar.visibility = View.GONE
                 }
                 binding.filterChipGroup.isVisible = state.isFilterSectionVisible
                 binding.sortChipGroup.isVisible = state.isFilterSectionVisible
             }
+        }
 
+        lifecycleScope.launchWhenStarted {
             // Observer Errors
             viewModel.infoChannel.collect { errorMessage ->
-                Snackbar.make(binding.root,errorMessage.toString(),Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root,errorMessage,Snackbar.LENGTH_SHORT).show()
             }
         }
     }
@@ -87,7 +90,8 @@ class SearchDoctorActivity : AppCompatActivity() {
     private fun setonClickListeners(){
         binding.apply {
             btnBack.setOnClickListener {
-                finish()
+                //finish()
+                viewModel.onEvent(AllDoctorsEvent.Search("this"))
             }
             btnFilter.setOnClickListener {
                 toggleFilterButtonRotation()
