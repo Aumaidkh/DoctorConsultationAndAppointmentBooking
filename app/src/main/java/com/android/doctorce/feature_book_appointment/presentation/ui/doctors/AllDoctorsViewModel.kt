@@ -5,8 +5,10 @@ import androidx.lifecycle.viewModelScope
 import com.android.doctorce.feature_book_appointment.data.util.Resource
 import com.android.doctorce.feature_book_appointment.domain.use_case.FetchDoctorsByCategoryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,6 +18,10 @@ class AllDoctorsViewModel @Inject constructor(
 ): ViewModel() {
 
     val state = MutableStateFlow(AllDoctorsState())
+
+    private var infoChannel = Channel<String>()
+    val channel get() = infoChannel.receiveAsFlow()
+
 
     init {
         fetchAllDoctors()
@@ -44,7 +50,9 @@ class AllDoctorsViewModel @Inject constructor(
                             state.value = state.value.copy(isLoading = false, doctors = doctors)
                         }
                     }
-                    is Resource.Error -> Unit
+                    is Resource.Error -> {
+
+                    }
                 }
             }
         }
