@@ -38,7 +38,7 @@
 
             <!--Edit button-->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btnEditProfil"
+                android:id="@+id/btnFilter"
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:layout_alignParentEnd="true"
@@ -82,206 +82,67 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--Doctors-->
-        <!--This layout will then be replaced by recyclerview-->
-<!--        <ScrollView-->
-<!--            android:layout_marginTop="2dp"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:scrollbars="none"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">-->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/filterChipGroup"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
 
+            <com.google.android.material.chip.Chip
+                android:id="@+id/feeChip"
+                android:text="consultation fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-<!--            <LinearLayout-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/experienceChip"
+                android:text="experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-<!--                <LinearLayout-->
-<!--                    android:weightSum="2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ratingsChip"
+                android:text="ratings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-<!--                    <RelativeLayout-->
-<!--                        android:layout_marginEnd="8dp"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
+        </com.google.android.material.chip.ChipGroup>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/sortChipGroup"
+            app:layout_constraintTop_toBottomOf="@id/filterChipGroup"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
 
-<!--                        <include layout="@layout/rv_doctor_list_item" />-->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ascendingChip"
+                android:text="Ascending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-<!--                    </RelativeLayout>-->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/descendingChip"
+                android:text="Descending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-<!--                    <RelativeLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_marginStart="8dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:weightSum="2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_marginEnd="8dp"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_marginStart="8dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:weightSum="2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_marginEnd="8dp"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_marginStart="8dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:weightSum="2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_marginEnd="8dp"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_marginStart="8dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:weightSum="2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_marginEnd="8dp"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_marginStart="8dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:weightSum="2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_marginEnd="8dp"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_marginStart="8dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <include layout="@layout/rv_doctor_list_item"/>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--            </LinearLayout>-->
-
-
-<!--        </ScrollView>-->
+        </com.google.android.material.chip.ChipGroup>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvDoctors"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textInputLayout"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sortChipGroup" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

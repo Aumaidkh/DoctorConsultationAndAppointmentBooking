@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,6 +14,7 @@ import com.android.doctorce.databinding.ActivitySearchDoctorsBinding
 import com.android.doctorce.feature_book_appointment.domain.model.DoctorModel
 import com.android.doctorce.feature_book_appointment.presentation.ui.appointment.DoctorDetailsActivity
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctors.adapters.DoctorAdapter
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
@@ -42,6 +44,11 @@ class SearchDoctorActivity : AppCompatActivity() {
         setupObservers()
     }
 
+    /**
+     * Setting up observers like
+     * 1. Populating the recyclerview here
+     * 2. Consuming error flow as well
+     * */
     private fun setupObservers() {
         lifecycleScope.launchWhenStarted {
             viewModel.state.collect { state ->
@@ -50,10 +57,22 @@ class SearchDoctorActivity : AppCompatActivity() {
                 }else{
                     Log.d(TAG, "Loading")
                 }
+                binding.filterChipGroup.isVisible = state.isFilterSectionVisible
+                binding.sortChipGroup.isVisible = state.isFilterSectionVisible
+            }
+
+            // Observer Errors
+            viewModel.infoChannel.collect { errorMessage ->
+                Snackbar.make(binding.root,errorMessage.toString(),Snackbar.LENGTH_SHORT).show()
             }
         }
     }
 
+    /**
+     * Setting up the recyclerview only
+     * 1. Assigning layout manager to it.
+     * 2. Assigning adapter to the view.
+     * */
     private fun setupRecyclerView() {
         binding.rvDoctors.apply {
             adapter = doctorAdapter
@@ -61,14 +80,24 @@ class SearchDoctorActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Setting button click listeners only
+     * */
     private fun setonClickListeners(){
         binding.apply {
             btnBack.setOnClickListener {
                 finish()
             }
+            btnFilter.setOnClickListener {
+                viewModel.onEvent(AllDoctorsEvent.ToggleOrderSectionVisibility)
+            }
         }
     }
 
+    /**
+     * 1. Navigating the user to the doctor details activity
+     * 2. Passing the DoctorModel with the intent
+     * */
     private fun onDoctorClicked(doctor: DoctorModel){
         val doctorDescriptionIntent = Intent(this,DoctorDetailsActivity::class.java)
         doctorDescriptionIntent.putExtra(DOCTOR,doctor)

@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.doctorce.feature_book_appointment.data.util.Resource
 import com.android.doctorce.feature_book_appointment.domain.use_case.FetchDoctorsByCategoryUseCase
+import com.android.doctorce.feature_book_appointment.domain.util.DoctorOrder
+import com.android.doctorce.feature_book_appointment.domain.util.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,8 +21,8 @@ class AllDoctorsViewModel @Inject constructor(
 
     val state = MutableStateFlow(AllDoctorsState())
 
-    private var infoChannel = Channel<String>()
-    val channel get() = infoChannel.receiveAsFlow()
+    private val _infoChannel = Channel<String>()
+    val infoChannel get() = _infoChannel.receiveAsFlow()
 
 
     init {
@@ -32,15 +34,23 @@ class AllDoctorsViewModel @Inject constructor(
             is AllDoctorsEvent.Search -> {
 
             }
-            is AllDoctorsEvent.FilterClick -> {
+            is AllDoctorsEvent.Order -> {
+                if (state.value.doctorsOrder::class == event.doctorOrder::class &&
+                        state.value.doctorsOrder.orderType == event.doctorOrder.orderType){
+                    return
+                }
+                fetchAllDoctors("",event.doctorOrder)
+            }
 
+            is AllDoctorsEvent.ToggleOrderSectionVisibility -> {
+                state.value = state.value.copy(isFilterSectionVisible = !state.value.isFilterSectionVisible)
             }
         }
     }
 
-    private fun fetchAllDoctors(){
+    private fun fetchAllDoctors(category: String = "", doctorOrder: DoctorOrder = DoctorOrder.Fee(OrderType.Ascending)){
         viewModelScope.launch {
-            fetchAllDoctorsByCategoryUseCase.invoke("").collect { result ->
+            fetchAllDoctorsByCategoryUseCase.invoke(category,doctorOrder).collect { result ->
                 when(result){
                     is Resource.Loading -> {
                         state.value = state.value.copy(isLoading = true)
@@ -51,7 +61,7 @@ class AllDoctorsViewModel @Inject constructor(
                         }
                     }
                     is Resource.Error -> {
-
+                        _infoChannel.send(result.message.toString())
                     }
                 }
             }
