@@ -19,4 +19,6 @@
     <color name="chip_completed_color">#ecf9f5</color>
     <color name="chip_completed_text_color">#15A31B</color>
 
+    <color name="snackbar_background_color">#AB1C68B3</color>
+
 </resources>

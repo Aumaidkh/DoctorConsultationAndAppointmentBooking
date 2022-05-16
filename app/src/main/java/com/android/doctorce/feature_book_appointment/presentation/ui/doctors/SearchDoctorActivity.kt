@@ -67,7 +67,9 @@ class SearchDoctorActivity : AppCompatActivity() {
         lifecycleScope.launchWhenStarted {
             // Observer Errors
             viewModel.infoChannel.collect { errorMessage ->
-                Snackbar.make(binding.root,errorMessage,Snackbar.LENGTH_SHORT).show()
+                val snackBar = Snackbar.make(binding.root,errorMessage,Snackbar.LENGTH_SHORT)
+                snackBar.view.setBackgroundColor(resources.getColor(R.color.snackbar_background_color))
+                snackBar.show()
             }
         }
     }
