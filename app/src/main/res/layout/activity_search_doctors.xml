@@ -47,6 +47,7 @@
                 app:cardCornerRadius="10dp">
 
                 <ImageView
+                    android:id="@+id/filterIcon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8dp"
@@ -82,58 +83,71 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/filterChipGroup"
+        <LinearLayout
+            android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/textInputLayout"
+            android:id="@+id/filterSection"
             android:layout_width="0dp"
-            android:visibility="gone"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/feeChip"
-                android:text="consultation fee"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/filterChipGroup"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+               >
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/experienceChip"
-                android:text="experience"
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/feeChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="consultation fee" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/experienceChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="experience" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ratingsChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ratings" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/sortChipGroup"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/filterChipGroup">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/ratingsChip"
-                android:text="ratings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ascendingChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ascending" />
 
-        </com.google.android.material.chip.ChipGroup>
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/sortChipGroup"
-            app:layout_constraintTop_toBottomOf="@id/filterChipGroup"
-            android:layout_width="0dp"
-            android:visibility="gone"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent">
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/descendingChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descending" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/ascendingChip"
-                android:text="Ascending"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            </com.google.android.material.chip.ChipGroup>
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/descendingChip"
-                android:text="Descending"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-        </com.google.android.material.chip.ChipGroup>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvDoctors"
@@ -142,7 +156,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sortChipGroup" />
+            app:layout_constraintTop_toBottomOf="@id/filterSection" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

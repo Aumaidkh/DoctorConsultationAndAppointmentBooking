@@ -1,5 +1,6 @@
 package com.android.doctorce.feature_book_appointment.presentation.ui.doctors
 
+import android.animation.ValueAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,7 +18,6 @@ import com.android.doctorce.feature_book_appointment.presentation.ui.doctors.ada
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 
 private const val TAG = "SearchDoctorActivity"
 @AndroidEntryPoint
@@ -29,6 +29,7 @@ class SearchDoctorActivity : AppCompatActivity() {
     private val viewModel: AllDoctorsViewModel by viewModels()
 
     private lateinit var doctorAdapter: DoctorAdapter
+    private var isFilterIconRotated = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,9 +90,39 @@ class SearchDoctorActivity : AppCompatActivity() {
                 finish()
             }
             btnFilter.setOnClickListener {
+                toggleFilterButtonRotation()
                 viewModel.onEvent(AllDoctorsEvent.ToggleOrderSectionVisibility)
             }
         }
+    }
+
+    /**
+     * Rotating filter icon when it is clicked
+     * */
+    private fun toggleFilterButtonRotation(){
+        if (!isFilterIconRotated){
+            binding.filterIcon.animate().rotation(90f).duration = 100
+            expandFilterSection(true)
+        } else {
+            expandFilterSection(false)
+            binding.filterIcon.animate().rotation(0f).duration = 100
+        }
+        isFilterIconRotated = !isFilterIconRotated
+    }
+
+    private fun expandFilterSection(isExpand: Boolean) {
+        val anim = ValueAnimator.ofInt(
+            binding.filterSection.measuredHeight,
+            if (isExpand) 250 else 0
+        )
+        anim.addUpdateListener {
+            val value = it.animatedValue as Int
+            val layoutParams = binding.filterSection.layoutParams
+            layoutParams.height = value
+            binding.filterSection.layoutParams = layoutParams
+        }
+        anim.duration = 100
+        anim.start()
     }
 
     /**
