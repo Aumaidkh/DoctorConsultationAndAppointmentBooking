@@ -25,6 +25,7 @@
 
             <!--Doctor Image-->
             <com.google.android.material.imageview.ShapeableImageView
+                android:transitionName="doctor_image_small"
                 android:id="@+id/ivDoctorImage"
                 app:shapeAppearance="@style/CircleImage"
                 android:scaleType="centerCrop"
@@ -37,6 +38,7 @@
                 android:layout_marginTop="10dp"
                 android:id="@+id/tvDoctorName"
                 android:maxLines="1"
+                android:transitionName="doctor_name_transition"
                 android:ellipsize="end"
                 android:textColor="@color/black"
                 android:fontFamily="@font/gilroy_semibold"
@@ -50,6 +52,7 @@
                 android:layout_marginTop="2dp"
                 android:id="@+id/tvDoctorSpeciality"
                 android:maxLines="1"
+                android:transitionName="fade"
                 android:ellipsize="end"
                 android:textColor="#99000000"
                 android:fontFamily="@font/gilroy_medium"

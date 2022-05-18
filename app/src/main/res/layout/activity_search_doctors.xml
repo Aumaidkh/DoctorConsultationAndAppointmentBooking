@@ -98,11 +98,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:singleSelection="true"
+                app:checkedChip="@id/feeChip"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/feeChip"
+                    style="@style/CustomChipStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="consultation fee" />
@@ -110,11 +113,13 @@
                 <com.google.android.material.chip.Chip
                     android:id="@+id/experienceChip"
                     android:layout_width="wrap_content"
+                    style="@style/CustomChipStyle"
                     android:layout_height="wrap_content"
                     android:text="experience" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/ratingsChip"
+                    style="@style/CustomChipStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ratings" />
@@ -125,6 +130,8 @@
                 android:id="@+id/sortChipGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:checkedChip="@id/ascendingChip"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -132,12 +139,14 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/ascendingChip"
+                    style="@style/CustomChipStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ascending" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/descendingChip"
+                    style="@style/CustomChipStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Descending" />
@@ -175,7 +184,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <include layout="@layout/error_illustration" />
+            <include android:id="@+id/errorIllustrationLayout" layout="@layout/error_illustration" />
 
         </RelativeLayout>
 

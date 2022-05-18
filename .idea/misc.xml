@@ -34,6 +34,7 @@
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/drawable/pencil_fill.xml" value="0.185" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/drawable/person_outline.xml" value="0.2115" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/drawable/primary_chip_background.xml" value="0.1935" />
+        <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/drawable/primary_chip_date_background.xml" value="0.213" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/drawable/round_background_color_rectangle.xml" value="0.1935" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/drawable/round_rectangle.xml" value="0.167" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/drawable/round_rectangle_white.xml" value="0.2335" />
@@ -71,8 +72,8 @@
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/activity_verify_otp.xml" value="0.25" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/activity_verify_otp2.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/card_back_button.xml" value="0.23421052631578948" />
-        <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/chip_layout.xml" value="0.22830269345874304" />
-        <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/error_illustration.xml" value="0.25" />
+        <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/chip_layout.xml" value="1.5" />
+        <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/error_illustration.xml" value="0.5" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_find_specialist.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_home.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_my_appointments.xml" value="0.22830269345874304" />

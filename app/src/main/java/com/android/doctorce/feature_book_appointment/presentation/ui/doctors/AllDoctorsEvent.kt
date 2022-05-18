@@ -6,4 +6,5 @@ sealed class AllDoctorsEvent{
     data class Order(val doctorOrder: DoctorOrder): AllDoctorsEvent()
     class Search(query: String): AllDoctorsEvent()
     object ToggleOrderSectionVisibility: AllDoctorsEvent()
+    object Retry: AllDoctorsEvent()
 }

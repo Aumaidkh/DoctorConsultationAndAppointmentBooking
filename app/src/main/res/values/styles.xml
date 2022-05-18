@@ -93,6 +93,12 @@
 
     <!--Status Chip Style-->
     <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:checkable">true</item>
+        <item name="chipBackgroundColor">@color/chip_bg_color</item>
+        <item name="chipStrokeColor">@color/chip_text_color</item>
+        <item name="android:textColor">@color/chip_text_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="checkedIconTint">@color/chip_text_color</item>
     </style>
 
     <style name="profile_option_style">
@@ -104,4 +110,5 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
 </resources>

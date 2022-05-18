@@ -46,6 +46,10 @@ class AllDoctorsViewModel @Inject constructor(
             is AllDoctorsEvent.ToggleOrderSectionVisibility -> {
                 state.value = state.value.copy(isFilterSectionVisible = !state.value.isFilterSectionVisible)
             }
+
+            is AllDoctorsEvent.Retry -> {
+                fetchAllDoctors()
+            }
         }
     }
 

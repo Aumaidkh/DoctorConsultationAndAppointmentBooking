@@ -2,11 +2,12 @@ package com.android.doctorce.feature_book_appointment.presentation.ui.doctors
 
 import android.animation.ValueAnimator
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.android.doctorce.R
 import com.android.doctorce.databinding.ActivitySearchDoctorsBinding
 import com.android.doctorce.feature_book_appointment.domain.model.DoctorModel
+import com.android.doctorce.feature_book_appointment.domain.util.DoctorOrder
+import com.android.doctorce.feature_book_appointment.domain.util.OrderType
 import com.android.doctorce.feature_book_appointment.presentation.ui.appointment.DoctorDetailsActivity
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctors.adapters.DoctorAdapter
 import com.google.android.material.snackbar.Snackbar
@@ -31,6 +34,13 @@ class SearchDoctorActivity : AppCompatActivity() {
 
     private lateinit var doctorAdapter: DoctorAdapter
     private var isFilterIconRotated = false
+
+    private var feeFilter = true
+    private var experienceFilter = false
+    private var ratingsFilter = false
+
+    private var ascendingFilter = true
+    private var descendingFilter = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +68,7 @@ class SearchDoctorActivity : AppCompatActivity() {
                 if (!state.isLoading){
                     doctorAdapter.submitList(state.doctors)
                     binding.progressBar.visibility = View.GONE
+                    binding.errorLayout.visibility = View.GONE
                 }
                 binding.filterChipGroup.isVisible = state.isFilterSectionVisible
                 binding.sortChipGroup.isVisible = state.isFilterSectionVisible
@@ -67,11 +78,87 @@ class SearchDoctorActivity : AppCompatActivity() {
         lifecycleScope.launchWhenStarted {
             // Observer Errors
             viewModel.infoChannel.collect { errorMessage ->
-                binding.errorLayout.visibility = View.VISIBLE
-                binding.progressBar.visibility = View.GONE
+                binding.apply {
+                    errorLayout.visibility = View.VISIBLE
+                    progressBar.visibility = View.GONE
+                    btnFilter.visibility = View.GONE
+                    textInputLayout.visibility = View.GONE
+                }
                 val snackBar = Snackbar.make(binding.root,errorMessage,Snackbar.LENGTH_SHORT)
                 snackBar.view.setBackgroundColor(resources.getColor(R.color.snackbar_background_color))
                 snackBar.show()
+            }
+        }
+    }
+
+    /**
+     * Setting up chips and their onClick Listeners
+     * */
+    private fun setupChips(){
+        binding.apply {
+            filterChipGroup.setOnCheckedChangeListener { _, checkedId ->
+                when(checkedId){
+                    R.id.feeChip -> {
+                        feeFilter = true
+                        experienceFilter = false
+                        ratingsFilter = false
+                        filterDoctors()
+                    }
+                    R.id.experienceChip -> {
+                        feeFilter = false
+                        experienceFilter = true
+                        ratingsFilter = false
+                        filterDoctors()
+                    }
+                    R.id.ratingsChip -> {
+                        feeFilter = false
+                        experienceFilter = false
+                        ratingsFilter = true
+                        filterDoctors()
+                    }
+                }
+
+            }
+
+            sortChipGroup.setOnCheckedChangeListener { _, checkedId ->
+                when(checkedId){
+                    R.id.ascendingChip -> {
+                        ascendingFilter = true
+                        descendingFilter = false
+                        filterDoctors()
+                    }
+                    R.id.descendingChip -> {
+                        ascendingFilter = false
+                        descendingFilter = true
+                        filterDoctors()
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Filters the doctors on the basis of flags set
+     * Makes a new api call on the basis of these filters
+     * */
+    private fun filterDoctors(){
+        if (feeFilter){
+            if (ascendingFilter){
+                viewModel.onEvent(AllDoctorsEvent.Order(DoctorOrder.Fee(OrderType.Ascending)))
+            }else{
+                viewModel.onEvent(AllDoctorsEvent.Order(DoctorOrder.Fee(OrderType.Descending)))
+            }
+        } else if (experienceFilter){
+            if (ascendingFilter){
+                viewModel.onEvent(AllDoctorsEvent.Order(DoctorOrder.Experience(OrderType.Ascending)))
+            }else{
+                viewModel.onEvent(AllDoctorsEvent.Order(DoctorOrder.Experience(OrderType.Descending)))
+            }
+        } else {
+            if (ascendingFilter){
+                viewModel.onEvent(AllDoctorsEvent.Order(DoctorOrder.Ratings(OrderType.Ascending)))
+            }else{
+                viewModel.onEvent(AllDoctorsEvent.Order(DoctorOrder.Ratings(OrderType.Descending)))
             }
         }
     }
@@ -100,7 +187,12 @@ class SearchDoctorActivity : AppCompatActivity() {
                 toggleFilterButtonRotation()
                 viewModel.onEvent(AllDoctorsEvent.ToggleOrderSectionVisibility)
             }
+            errorIllustrationLayout.btnRetry.setOnClickListener {
+                viewModel.onEvent(AllDoctorsEvent.Retry)
+            }
+
         }
+        setupChips()
     }
 
     /**
@@ -117,6 +209,11 @@ class SearchDoctorActivity : AppCompatActivity() {
         isFilterIconRotated = !isFilterIconRotated
     }
 
+    /**
+     * toggles the filter section
+     * if @param is true then expands
+     * else collapses the section
+     * */
     private fun expandFilterSection(isExpand: Boolean) {
         val anim = ValueAnimator.ofInt(
             binding.filterSection.measuredHeight,
@@ -138,8 +235,11 @@ class SearchDoctorActivity : AppCompatActivity() {
      * */
     private fun onDoctorClicked(doctor: DoctorModel){
         val doctorDescriptionIntent = Intent(this,DoctorDetailsActivity::class.java)
+        val pair1 = Pair<View,String>(findViewById(R.id.ivDoctorImage),"doctor_image_transition")
+        val pair2 = Pair<View,String>(findViewById(R.id.tvDoctorName),"doctor_name_transition")
         doctorDescriptionIntent.putExtra(DOCTOR,doctor)
-        startActivity(doctorDescriptionIntent)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, pair1, pair2)
+        startActivity(doctorDescriptionIntent,options.toBundle())
     }
 
     companion object {
