@@ -10,6 +10,7 @@ import com.android.doctorce.R
 import com.android.doctorce.databinding.ActivityDoctorDetailsBinding
 import com.android.doctorce.feature_book_appointment.domain.model.DoctorModel
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_counseling.BookAppointmentActivity
+import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_details.adapters.AppointmentDateAdapter
 import com.bumptech.glide.Glide
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
@@ -35,7 +36,27 @@ class DoctorDetailsActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        setupAppointmentDateRecyclerView()
         setupObservers()
+    }
+
+    private fun setupAppointmentDateRecyclerView(){
+        val appointmentDateAdapter = AppointmentDateAdapter()
+        binding.rvDateAndDay.apply {
+            adapter = appointmentDateAdapter
+        }
+        appointmentDateAdapter.submitList(listOf(
+            AppointmentDateUiState("Mon","16",true),
+            AppointmentDateUiState("Tue","17",false),
+            AppointmentDateUiState("Wed","18",false),
+            AppointmentDateUiState("Thu","19",false),
+            AppointmentDateUiState("Fri","20",false),
+            AppointmentDateUiState("Sat","21",false),
+        ))
+    }
+
+    private fun getSevenDaysFromNow(){
+       // val date = Da
     }
 
     /**
