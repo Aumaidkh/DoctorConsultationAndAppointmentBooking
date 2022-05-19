@@ -8,4 +8,6 @@ import kotlinx.coroutines.flow.Flow
 interface DoctorsRepository {
 
     suspend fun fetchAllDoctorsByCategory(category: String, doctorOrder: DoctorOrder): Flow<Resource<List<DoctorModel>>>
+
+    suspend fun fetchDoctorDetailsById(doctorId: Int = 0): Flow<Resource<DoctorModel>>
 }

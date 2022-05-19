@@ -14,4 +14,5 @@
     <string name="did_not_receive_otp">Didn\'t receive otp?</string>
     <string name="resend">Resend</string>
     <string name="dummy_doctor_decr">Jenny Wilson is a doctor of the highest category, candidate of medical sciences. She has an expertise of 16 years. Engaged in the prevention, diagnosis and treatment of a wide range of gastroenterological diseases. Also have excellent reviews by not patient</string>
+    <string name="error_finding_doctor_details">Error fetching doctor details</string>
 </resources>

@@ -19,7 +19,7 @@
             android:name="com.android.doctorce.feature_book_appointment.presentation.ui.doctor_counseling.BookAppointmentActivity"
             android:exported="false" />
         <activity
-            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.DoctorDetailsActivity"
+            android:name="com.android.doctorce.feature_book_appointment.presentation.ui.doctor_details.DoctorDetailsActivity"
             android:exported="false" />
         <activity
             android:name="com.android.doctorce.feature_book_appointment.presentation.ui.profile.EditProfile"

@@ -16,7 +16,9 @@ data class DoctorDto(
     @SerializedName("portfolio")
     val portfolioDto: DoctorPortfolioDto,
     @SerializedName("fee")
-    val consultationFee: Double
+    val consultationFee: Double,
+    @SerializedName("timings")
+    val timings: String
 
 )
 

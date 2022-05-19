@@ -17,7 +17,7 @@ import com.android.doctorce.databinding.ActivitySearchDoctorsBinding
 import com.android.doctorce.feature_book_appointment.domain.model.DoctorModel
 import com.android.doctorce.feature_book_appointment.domain.util.DoctorOrder
 import com.android.doctorce.feature_book_appointment.domain.util.OrderType
-import com.android.doctorce.feature_book_appointment.presentation.ui.appointment.DoctorDetailsActivity
+import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_details.DoctorDetailsActivity
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctors.adapters.DoctorAdapter
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -234,7 +234,7 @@ class SearchDoctorActivity : AppCompatActivity() {
      * 2. Passing the DoctorModel with the intent
      * */
     private fun onDoctorClicked(doctor: DoctorModel){
-        val doctorDescriptionIntent = Intent(this,DoctorDetailsActivity::class.java)
+        val doctorDescriptionIntent = Intent(this, DoctorDetailsActivity::class.java)
         val pair1 = Pair<View,String>(findViewById(R.id.ivDoctorImage),"doctor_image_transition")
         val pair2 = Pair<View,String>(findViewById(R.id.tvDoctorName),"doctor_name_transition")
         doctorDescriptionIntent.putExtra(DOCTOR,doctor)

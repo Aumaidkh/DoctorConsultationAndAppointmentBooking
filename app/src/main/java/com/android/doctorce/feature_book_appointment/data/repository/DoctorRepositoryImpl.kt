@@ -48,4 +48,23 @@ class DoctorRepositoryImpl @Inject constructor(
             emit(Resource.Loading(false))
         }
     }
+
+    override suspend fun fetchDoctorDetailsById(doctorId: Int): Flow<Resource<DoctorModel>> {
+        return flow {
+            emit(Resource.Loading(true))
+            try {
+                val responseFromApi = api.fetchDoctorDetailsById()
+                if (responseFromApi.isSuccessful && responseFromApi.body() != null){
+                    emit(Resource.Success(responseFromApi.body()!!.toDoctorModel()))
+                } else {
+                    emit(Resource.Error("Something went wrong"))
+                }
+            } catch (e: Exception){
+                e.printStackTrace()
+                emit(Resource.Error(e.message.toString()))
+            }
+
+            emit(Resource.Loading(false))
+        }
+    }
 }

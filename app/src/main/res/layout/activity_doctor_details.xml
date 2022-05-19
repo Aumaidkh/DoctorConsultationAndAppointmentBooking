@@ -13,7 +13,7 @@
         android:background="@color/background_color"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        tools:context=".feature_book_appointment.presentation.ui.appointment.DoctorDetailsActivity">
+        tools:context=".feature_book_appointment.presentation.ui.doctor_details.DoctorDetailsActivity">
 
         <RelativeLayout
             android:id="@+id/toolbarlayout"

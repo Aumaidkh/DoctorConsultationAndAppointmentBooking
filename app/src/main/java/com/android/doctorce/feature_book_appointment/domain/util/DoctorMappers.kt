@@ -14,7 +14,8 @@ fun DoctorDto.toDoctorModel() =
         imageUrl = imageUrl,
         aboutDoctor = aboutDoctor,
         portfolioModel = portfolioDto.toDoctorPortfolioModel(),
-        consultationFee = consultationFee
+        consultationFee = consultationFee,
+        timings = timings
     )
 
 
@@ -26,7 +27,8 @@ fun DoctorModel.toDoctorDto() =
         imageUrl = imageUrl,
         aboutDoctor = aboutDoctor,
         portfolioDto = portfolioModel.toDoctorPortfolioDto(),
-        consultationFee = consultationFee
+        consultationFee = consultationFee,
+        timings = timings
     )
 
 fun DoctorPortfolioModel.toDoctorPortfolioDto() =

@@ -1,4 +1,4 @@
-package com.android.doctorce.feature_book_appointment.domain.use_case
+package com.android.doctorce.feature_book_appointment.domain.use_case.doctors_use_case
 
 import com.android.doctorce.feature_book_appointment.data.util.Resource
 import com.android.doctorce.feature_book_appointment.domain.model.DoctorModel

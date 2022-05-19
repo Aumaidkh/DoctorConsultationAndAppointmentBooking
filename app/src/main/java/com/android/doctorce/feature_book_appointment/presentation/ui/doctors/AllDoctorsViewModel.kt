@@ -3,7 +3,8 @@ package com.android.doctorce.feature_book_appointment.presentation.ui.doctors
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.doctorce.feature_book_appointment.data.util.Resource
-import com.android.doctorce.feature_book_appointment.domain.use_case.FetchDoctorsByCategoryUseCase
+import com.android.doctorce.feature_book_appointment.domain.use_case.doctors_use_case.DoctorsUseCase
+import com.android.doctorce.feature_book_appointment.domain.use_case.doctors_use_case.FetchDoctorsByCategoryUseCase
 import com.android.doctorce.feature_book_appointment.domain.util.DoctorOrder
 import com.android.doctorce.feature_book_appointment.domain.util.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AllDoctorsViewModel @Inject constructor(
-    private val fetchAllDoctorsByCategoryUseCase: FetchDoctorsByCategoryUseCase
+    private val doctorsUseCase: DoctorsUseCase
 ): ViewModel() {
 
     val state = MutableStateFlow(AllDoctorsState())
@@ -56,7 +57,7 @@ class AllDoctorsViewModel @Inject constructor(
 
     private fun fetchAllDoctors(category: String = "", doctorOrder: DoctorOrder = DoctorOrder.Fee(OrderType.Ascending)){
         viewModelScope.launch {
-            fetchAllDoctorsByCategoryUseCase.invoke(category,doctorOrder).collect { result ->
+            doctorsUseCase.fetchDoctorsByCategoryUseCase.invoke(category,doctorOrder).collect { result ->
                 when(result){
                     is Resource.Loading -> {
                         state.value = state.value.copy(isLoading = true)

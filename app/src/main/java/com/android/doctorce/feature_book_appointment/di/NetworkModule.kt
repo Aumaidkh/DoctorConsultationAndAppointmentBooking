@@ -7,7 +7,9 @@ import com.android.doctorce.feature_book_appointment.data.repository.Appointment
 import com.android.doctorce.feature_book_appointment.data.repository.DoctorRepositoryImpl
 import com.android.doctorce.feature_book_appointment.domain.repository.AppointmentRepository
 import com.android.doctorce.feature_book_appointment.domain.repository.DoctorsRepository
-import com.android.doctorce.feature_book_appointment.domain.use_case.FetchDoctorsByCategoryUseCase
+import com.android.doctorce.feature_book_appointment.domain.use_case.doctors_use_case.DoctorsUseCase
+import com.android.doctorce.feature_book_appointment.domain.use_case.doctors_use_case.FetchDoctorDetailsByIdUseCase
+import com.android.doctorce.feature_book_appointment.domain.use_case.doctors_use_case.FetchDoctorsByCategoryUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,10 +35,7 @@ object NetworkModule {
         return DoctorRepositoryImpl(api)
     }
 
-    @Singleton
-    @Provides
-    fun provideFetchDoctorsByCategoryUseCase(repository: DoctorsRepository): FetchDoctorsByCategoryUseCase =
-        FetchDoctorsByCategoryUseCase(repository)
+
 
     @Singleton
     @Provides
@@ -57,5 +56,29 @@ object NetworkModule {
     fun provideDoctorsApi(retrofit: Retrofit): DoctorsApi {
         return retrofit.create(DoctorsApi::class.java)
     }
+
+    /**
+     * Use Cases section
+     * */
+    @Singleton
+    @Provides
+    fun provideDoctorsUseCase(
+        fetchDoctorDetailsByIdUseCase: FetchDoctorDetailsByIdUseCase,
+        fetchDoctorsByCategoryUseCase: FetchDoctorsByCategoryUseCase
+    ): DoctorsUseCase {
+        return DoctorsUseCase(
+            fetchDoctorsByCategoryUseCase,
+            fetchDoctorDetailsByIdUseCase
+        )
+    }
+    @Singleton
+    @Provides
+    fun provideFetchDoctorsByCategoryUseCase(repository: DoctorsRepository): FetchDoctorsByCategoryUseCase =
+        FetchDoctorsByCategoryUseCase(repository)
+
+    @Singleton
+    @Provides
+    fun provideFetchDoctorDetailsByIdUseCase(repository: DoctorsRepository): FetchDoctorDetailsByIdUseCase =
+        FetchDoctorDetailsByIdUseCase(repository)
 
 }

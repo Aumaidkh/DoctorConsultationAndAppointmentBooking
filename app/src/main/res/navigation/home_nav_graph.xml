@@ -43,6 +43,6 @@
         android:label="SearchDoctorActivity" />
     <activity
         android:id="@+id/doctorDetailsActivity"
-        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.DoctorDetailsActivity"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.doctor_details.DoctorDetailsActivity"
         android:label="DoctorDetailsActivity" />
 </navigation>

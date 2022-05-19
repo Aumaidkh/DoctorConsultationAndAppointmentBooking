@@ -11,7 +11,8 @@ data class DoctorModel(
     val imageUrl: String,
     val aboutDoctor: String,
     val portfolioModel: DoctorPortfolioModel,
-    val consultationFee: Double
+    val consultationFee: Double,
+    val timings: String
 
 ): Parcelable
 
