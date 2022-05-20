@@ -3,8 +3,6 @@ package com.android.doctorce.feature_book_appointment.presentation.ui.doctor_det
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.doctorce.R
 import com.android.doctorce.databinding.DoctorChipLayoutBinding
@@ -13,7 +11,7 @@ import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_deta
 class AppointmentDateAdapter :
     RecyclerView.Adapter<AppointmentDateAdapter.AppointmentDateViewHolder>() {
 
-    var items = emptyList<AppointmentDateUiState>()
+    private var items = emptyList<AppointmentDateUiState>()
     var selectedItem: AppointmentDateUiState? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppointmentDateViewHolder {
@@ -64,7 +62,8 @@ class AppointmentDateAdapter :
                 deselectTheRestElements()
                 selectedItem = item
                 item.isSelected = !item.isSelected
-                notifyDataSetChanged()
+                notifyItemChanged(absoluteAdapterPosition-1)
+                notifyItemChanged(absoluteAdapterPosition)
             }
         }
 
