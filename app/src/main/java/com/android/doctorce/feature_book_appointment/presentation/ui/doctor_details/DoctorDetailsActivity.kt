@@ -55,9 +55,6 @@ class DoctorDetailsActivity : AppCompatActivity() {
         ))
     }
 
-    private fun getSevenDaysFromNow(){
-       // val date = Da
-    }
 
     /**
      * Observers

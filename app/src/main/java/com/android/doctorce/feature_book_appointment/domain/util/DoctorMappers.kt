@@ -19,26 +19,6 @@ fun DoctorDto.toDoctorModel() =
     )
 
 
-fun DoctorModel.toDoctorDto() =
-    DoctorDto(
-        name = name,
-        speciality = speciality,
-        posting = posting,
-        imageUrl = imageUrl,
-        aboutDoctor = aboutDoctor,
-        portfolioDto = portfolioModel.toDoctorPortfolioDto(),
-        consultationFee = consultationFee,
-        timings = timings
-    )
-
-fun DoctorPortfolioModel.toDoctorPortfolioDto() =
-    DoctorPortfolioDto(
-        numberOfPatients = numberOfPatients,
-        experienceInYears = experienceInYears,
-        totalReviews = totalReviews,
-        totalRatings = totalRatings
-    )
-
 fun DoctorPortfolioDto.toDoctorPortfolioModel() =
     DoctorPortfolioModel(
         numberOfPatients = numberOfPatients,
