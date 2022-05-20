@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.android.doctorce.R
 import com.android.doctorce.feature_book_appointment.data.util.Resource
 import com.android.doctorce.feature_book_appointment.domain.use_case.doctors_use_case.DoctorsUseCase
+import com.android.doctorce.feature_book_appointment.presentation.util.HelperMethods
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,8 +25,16 @@ class DoctorDetailsViewModel @Inject constructor(
     private val _errorChannel = Channel<String>()
     val errorChannel get() = _errorChannel.receiveAsFlow()
 
+    private val _doctorDetailState : MutableStateFlow<DoctorDetailsState> = MutableStateFlow(
+        DoctorDetailsState()
+    )
+    private var dates = listOf<AppointmentDateUiState>()
+
+    val doctorDetailState get() = _doctorDetailState.asStateFlow()
+
     init {
         fetchDoctorDetails()
+        fetchAppointmentDates()
     }
 
     fun onEvent(event: DoctorDetailsEvent){
@@ -42,10 +51,7 @@ class DoctorDetailsViewModel @Inject constructor(
         }
     }
 
-    private val _doctorDetailState : MutableStateFlow<DoctorDetailsState> = MutableStateFlow(
-        DoctorDetailsState()
-    )
-    val doctorDetailState get() = _doctorDetailState.asStateFlow()
+
 
     private fun fetchDoctorDetails(){
         viewModelScope.launch {
@@ -56,8 +62,14 @@ class DoctorDetailsViewModel @Inject constructor(
                     }
 
                     is Resource.Success -> {
+                        //fetchAppointmentDates()
                         result.data?.let { doctorModel ->
-                            _doctorDetailState.value = _doctorDetailState.value.copy(isLoading = false, doctorModel = doctorModel)
+                            _doctorDetailState.value =
+                                _doctorDetailState.value.copy(
+                                    isLoading = false,
+                                    doctorModel = doctorModel,
+                                    appointmentDates = dates
+                                )
                         }
                     }
 
@@ -67,6 +79,10 @@ class DoctorDetailsViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    private fun fetchAppointmentDates() {
+        dates = HelperMethods.getCalculatedDate("EE,dd",7)
     }
 
 }

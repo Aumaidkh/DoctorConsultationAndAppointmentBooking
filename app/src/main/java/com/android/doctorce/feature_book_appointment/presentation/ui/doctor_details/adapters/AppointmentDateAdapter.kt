@@ -43,7 +43,21 @@ class AppointmentDateAdapter :
             binding.tvDay.text = item.day
             binding.tvDate.text = item.date
             if (item.isSelected) {
-                //   deselectTheRestElements()
+                applyItemSelectedEffect(true,item)
+            } else {
+                applyItemSelectedEffect(false,item)
+            }
+
+            itemView.setOnClickListener {
+                deselectTheRestElements()
+                selectedItem = item
+                item.isSelected = !item.isSelected
+                refreshAllItems()
+            }
+        }
+
+        private fun applyItemSelectedEffect(isSelected: Boolean, item: AppointmentDateUiState) {
+            if (isSelected){
                 binding.apply {
                     root.setBackgroundResource(R.drawable.primary_chip_background)
                     tvDate.setTextColor(itemView.context.getColor(R.color.white))
@@ -58,20 +72,28 @@ class AppointmentDateAdapter :
                 }
             }
 
-            itemView.setOnClickListener {
-                deselectTheRestElements()
-                selectedItem = item
-                item.isSelected = !item.isSelected
-                notifyItemChanged(absoluteAdapterPosition-1)
-                notifyItemChanged(absoluteAdapterPosition)
-            }
         }
 
     }
 
+    /**
+     * Calling Adapter Notify dataset changed for every items
+     * ensuring all the rest items get deselected first
+     * */
+    private fun refreshAllItems(){
+        for (i in items.indices){
+            notifyItemChanged(i)
+        }
+    }
+
     override fun getItemCount(): Int = items.size
 
+    /**
+     * Submits data to the adapter
+     * */
     fun submitList(items: List<AppointmentDateUiState>) {
         this.items = items
+        refreshAllItems()
     }
+
 }
