@@ -13,9 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
 import com.android.doctorce.R
 import com.android.doctorce.databinding.ActivityDoctorDetailsBinding
+import com.android.doctorce.feature_book_appointment.domain.model.BookAppointmentModel
 import com.android.doctorce.feature_book_appointment.domain.model.DoctorModel
+import com.android.doctorce.feature_book_appointment.presentation.ui.appointment.AddPatientDetailsActivity
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_counseling.BookAppointmentActivity
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_details.adapters.AppointmentDateAdapter
+import com.android.doctorce.feature_book_appointment.presentation.util.Constants.NEW_APPOINTMENT
 import com.android.doctorce.feature_book_appointment.presentation.util.HelperMethods.getCalculatedDate
 import com.bumptech.glide.Glide
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -125,8 +128,18 @@ class DoctorDetailsActivity : AppCompatActivity() {
                 finish()
             }
 
+            /*
+            * Creating a book appointment and we will be filling it throughout the screens
+            * */
             btnBookAppointment.setOnClickListener {
-                startActivity(Intent(this@DoctorDetailsActivity, BookAppointmentActivity::class.java))
+                val newAppointment = BookAppointmentModel(
+                    userId = 1, // has to be passed from prefs
+                    doctorId = 2, // will be passed from prevActivity
+                    appointmentDate = appointmentDateAdapter.selectedItem
+                )
+                val addPatientDetailsIntent = Intent(this@DoctorDetailsActivity, AddPatientDetailsActivity::class.java)
+                addPatientDetailsIntent.putExtra(NEW_APPOINTMENT,newAppointment)
+                startActivity(addPatientDetailsIntent)
             }
 
             btnCalendar.setOnClickListener {
