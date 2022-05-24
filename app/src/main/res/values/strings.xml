@@ -19,4 +19,13 @@
     <!--Place Holder Strings-->
     <string name="reviews_place_holder_string">( %1$d reviews)</string>
     <string name="speciality_posting_place_holder_string">%1$s . %2$s</string>
+    <string name="full_name_cant_blank">Full Name can\'t be blank</string>
+    <string name="invalid_name">Invalid name</string>
+    <string name="address_cant_be_blank">Address can\'t be blank</string>
+    <string name="invalid_address">Invalid Address</string>
+    <string name="dob_cant_be_blank">Date of birth can\'t be blank</string>
+    <string name="invalid_date_of_birth">Invalid date of birth</string>
+    <string name="no_gender_selected">No gender selected</string>
+    <string name="phone_number_cant_be_blank">Phone Number can\'t be blank</string>
+    <string name="invalid_phone_number">Invalid Phone Number</string>
 </resources>

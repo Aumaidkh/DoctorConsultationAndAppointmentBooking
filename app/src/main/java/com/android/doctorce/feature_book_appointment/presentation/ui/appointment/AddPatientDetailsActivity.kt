@@ -13,10 +13,12 @@ import androidx.lifecycle.lifecycleScope
 import com.android.doctorce.R
 import com.android.doctorce.databinding.ActivityAddPatientDetailsBinding
 import com.android.doctorce.feature_book_appointment.domain.model.BookAppointmentModel
+import com.android.doctorce.feature_book_appointment.domain.util.UiText
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_counseling.BookAppointmentActivity
 import com.android.doctorce.feature_book_appointment.presentation.util.Constants.FEMALE
 import com.android.doctorce.feature_book_appointment.presentation.util.Constants.MALE
 import com.android.doctorce.feature_book_appointment.presentation.util.Constants.NEW_APPOINTMENT
+import com.android.doctorce.feature_book_appointment.presentation.util.asString
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
@@ -92,20 +94,20 @@ class AddPatientDetailsActivity : AppCompatActivity() {
 
     private fun setupErrors(state: BookingFormState) {
         if (state.fullNameError != null){
-            binding.etFullName.error = state.fullNameError
+            binding.etFullName.error = asString(state.fullNameError)
         }
         if (state.genderError != null){
-            binding.tvGender.text = state.genderError
+            binding.tvGender.text = asString(state.genderError)
             binding.tvGender.setTextColor(getColor(R.color.error))
         }
         if (state.dateOfBirthError != null){
-            binding.etDateOfBirth.error = state.dateOfBirthError
+            binding.etDateOfBirth.error = asString(state.dateOfBirthError)
         }
         if (state.addressError != null){
-            binding.etAddress.error = state.addressError
+            binding.etAddress.error = asString(state.addressError)
         }
         if (state.phoneNumberError != null){
-            binding.etPhone.error = state.phoneNumberError
+            binding.etPhone.error = asString(state.phoneNumberError)
         }
     }
 
@@ -133,4 +135,6 @@ class AddPatientDetailsActivity : AppCompatActivity() {
         super.onDestroy()
         _binding = null
     }
+
+
 }

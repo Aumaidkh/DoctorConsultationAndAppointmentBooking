@@ -1,7 +1,9 @@
 package com.android.doctorce.feature_book_appointment.domain.use_case.appointment_use_cases
 
+import com.android.doctorce.R
 import com.android.doctorce.feature_book_appointment.domain.use_case.ValidationResult
 import com.android.doctorce.feature_book_appointment.domain.util.Constants.DATE_OF_BIRTH_VALIDATION_REGEX
+import com.android.doctorce.feature_book_appointment.domain.util.UiText
 
 class ValidateDateOfBirthUseCase {
 
@@ -9,13 +11,13 @@ class ValidateDateOfBirthUseCase {
         if (dateOfBirth.isBlank()) {
             return ValidationResult(
                 successful = false,
-                errorMessage = "Date of birth can't be blank"
+                errorMessage = UiText.StringResource(R.string.dob_cant_be_blank)
             )
         }
         if (!Regex(DATE_OF_BIRTH_VALIDATION_REGEX).matches(dateOfBirth)){
             return ValidationResult(
                 successful = false,
-                errorMessage = "Invalid D.O.B"
+                errorMessage = UiText.StringResource(R.string.invalid_date_of_birth)
             )
         }
 
