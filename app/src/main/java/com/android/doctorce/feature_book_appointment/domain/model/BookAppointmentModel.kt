@@ -18,8 +18,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class BookAppointmentModel(
     var userId: Int? = null,
-    var firstName: String = "",
-    var lastName: String = "",
+    var patient: PatientModel? = null,
     var doctorId: Int? = null,
     var consultationType: Int? = null,
     var bookingStatus: Int? = null,
