@@ -59,6 +59,7 @@
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/drawable/white_circle_shape.xml" value="0.1935" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout-v28/activity_home_screen.xml" value="0.278125" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/activity_add_patient_details.xml" value="0.4564102564102564" />
+        <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/activity_appointment.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/activity_book_appointment.xml" value="0.5" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/activity_doctor_details.xml" value="0.4564102564102564" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/activity_doctor_profile.xml" value="0.25" />
@@ -82,9 +83,12 @@
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/chip_layout.xml" value="1.5" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/doctor_chip_layout.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/error_illustration.xml" value="0.5" />
+        <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_appointment_type_selection.xml" value="0.22830269345874304" />
+        <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_doctor_details.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_find_specialist.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_home.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_my_appointments.xml" value="0.22830269345874304" />
+        <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_patient_details.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/fragment_profile.xml" value="0.34077855775366944" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/list_item.xml" value="0.22830269345874304" />
         <entry key="..\:/Users/Aumaid/Desktop/Booking Appointment/app/src/main/res/layout/loading_layout.xml" value="0.2278751603249252" />

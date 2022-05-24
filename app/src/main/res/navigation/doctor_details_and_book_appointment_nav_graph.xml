@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/doctor_details_and_book_appointment_nav_graph"
+    app:startDestination="@id/doctorDetailsFragment">
+
+    <fragment
+        android:id="@+id/doctorDetailsFragment"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.fragment.DoctorDetailsFragment"
+        android:label="fragment_doctor_details"
+        tools:layout="@layout/fragment_doctor_details" >
+        <action
+            android:id="@+id/action_doctorDetailsFragment_to_patientDetailsFragment"
+            app:destination="@id/patientDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/patientDetailsFragment"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.fragment.PatientDetailsFragment"
+        android:label="fragment_patient_details"
+        tools:layout="@layout/fragment_patient_details" >
+        <action
+            android:id="@+id/action_patientDetailsFragment_to_appointmentTypeSelectionFragment"
+            app:destination="@id/appointmentTypeSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentTypeSelectionFragment"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.fragment.AppointmentTypeSelectionFragment"
+        android:label="fragment_appointment_type_selection"
+        tools:layout="@layout/fragment_appointment_type_selection" />
+</navigation>

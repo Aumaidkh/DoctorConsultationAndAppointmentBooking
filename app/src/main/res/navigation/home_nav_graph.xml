@@ -13,8 +13,8 @@
             android:id="@+id/action_homeFragment_to_searchDoctorActivity"
             app:destination="@id/searchDoctorActivity" />
         <action
-            android:id="@+id/action_homeFragment_to_doctorDetailsActivity"
-            app:destination="@id/doctorDetailsActivity" />
+            android:id="@+id/action_homeFragment_to_appointmentActivity"
+            app:destination="@id/appointmentActivity" />
     </fragment>
     <fragment
         android:id="@+id/findSpecialistsFragment"
@@ -42,7 +42,8 @@
         android:name="com.android.doctorce.feature_book_appointment.presentation.ui.doctors.SearchDoctorActivity"
         android:label="SearchDoctorActivity" />
     <activity
-        android:id="@+id/doctorDetailsActivity"
-        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.doctor_details.DoctorDetailsActivity"
-        android:label="DoctorDetailsActivity" />
+        android:id="@+id/appointmentActivity"
+        android:name="com.android.doctorce.feature_book_appointment.presentation.ui.appointment.AppointmentActivity"
+        android:label="activity_appointment"
+        tools:layout="@layout/activity_appointment" />
 </navigation>

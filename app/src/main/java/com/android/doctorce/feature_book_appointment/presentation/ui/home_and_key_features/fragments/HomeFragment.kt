@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
             }
 
             toolbar.btnNotifications.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_doctorDetailsActivity)
+                findNavController().navigate(R.id.action_homeFragment_to_appointmentActivity)
             }
         }
     }

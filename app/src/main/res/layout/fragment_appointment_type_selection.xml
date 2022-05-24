@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature_book_appointment.presentation.ui.doctor_counseling.BookAppointmentActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--Toolbar-->
+                <RelativeLayout
+                    android:id="@+id/toolbarlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <include
+                        android:id="@+id/btnBack"
+                        layout="@layout/card_back_button" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/gilroy_semibold"
+                        android:text="Appointment"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/bold_heading1" />
+
+
+                </RelativeLayout>
+
+                <!--Doctor Details-->
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="24dp"
+                    android:weightSum="4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbarlayout">
+
+                    <!--Doctor Image-->
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/face"
+                            app:shapeAppearance="@style/CircleImage"
+                            app:strokeColor="@color/white"
+                            app:strokeWidth="3dp" />
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="end|bottom"
+                            android:background="@drawable/blue_background_color_circle_shape"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_sethescope"
+                            app:tint="@color/primary_color" />
+
+                    </FrameLayout>
+
+                    <!--Doctor Details-->
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="3">
+
+
+                        <!--Details Layout-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp">
+
+                            <!--Doctors Name-->
+                            <TextView
+                                android:id="@+id/tvDoctorName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/gilroy_bold"
+                                android:maxLines="1"
+                                android:text="Dr. Shakib Khan"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/bold_heading1" />
+
+                            <!--Reviews and ratings-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/star_fill_1_"
+                                    app:tint="@color/primary_color" />
+
+                                <TextView
+                                    android:id="@+id/tvTotalRatings"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:maxLines="1"
+                                    android:text="4.9"
+                                    android:textColor="#99000000"
+                                    android:textSize="@dimen/medium_subtitle1" />
+
+                                <TextView
+                                    android:id="@+id/tvTotalReviews"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:maxLines="1"
+                                    android:text="(499 reviews)"
+                                    android:textColor="#99000000"
+                                    android:textSize="@dimen/medium_subtitle1" />
+
+                            </LinearLayout>
+
+                            <!--Speciality and hospital-->
+                            <TextView
+                                android:id="@+id/tvDoctorSpecialityAndPosting"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/gilroy_medium"
+                                android:maxLines="1"
+                                android:text="Psychologist . Asian Hospital"
+                                android:textColor="#99000000"
+                                android:textSize="@dimen/medium_subtitle1" />
+
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+
+                </LinearLayout>
+
+                <!--Appointment type buttons-->
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background_color"
+                    android:orientation="horizontal"
+                    android:paddingStart="24dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="24dp"
+                    android:paddingBottom="16dp"
+                    android:weightSum="2"
+                    app:layout_constraintTop_toBottomOf="@id/toolbarlayout"
+                    tools:layout_editor_absoluteX="24dp">
+
+                    <!--Upcoming-->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/upcomingCard"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="6dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0.3dp"
+                        app:strokeColor="@color/primary_color">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/gilroy_semibold"
+                            android:padding="20dp"
+                            android:text="Hospital"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/bold_heading2" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!--Past-->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/pastCard"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0.3dp"
+                        app:strokeColor="@color/primary_color">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/gilroy_semibold"
+                            android:padding="20dp"
+                            android:text="Online"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/bold_heading2" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <!--Invoice details-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <!--Promo code-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:fontFamily="@font/gilroy_semibold"
+                        android:text="Promo Code"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/bold_heading2" />
+
+                    <!--Promo Code Field-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="24dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:theme="@style/PromoCodeFieldTheme"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxStrokeColor="@color/yellow"
+                        app:boxStrokeWidth="0dp"
+                        app:startIconTint="@color/primary_color"
+                        app:boxStrokeWidthFocused="1dp"
+                        app:startIconDrawable="@drawable/ic_promo">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/background_color"
+                            android:hint="Enter promo code"
+                            android:inputType="textCapCharacters"
+                            android:textColorHint="@color/secondary_text_color" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Total Cost-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:fontFamily="@font/gilroy_semibold"
+                            android:text="Total Cost"
+                            android:textColor="#4D000000"
+                            android:textSize="@dimen/bold_heading2" />
+
+                        <TextView
+                            android:id="@+id/tvTotalCost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:fontFamily="@font/gilroy_semibold"
+                            android:text="Rs. 800"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/bold_heading2" />
+
+                    </RelativeLayout>
+
+                    <!--Total Discount-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:fontFamily="@font/gilroy_semibold"
+                            android:text="Total Discount"
+                            android:textColor="#4D000000"
+                            android:textSize="@dimen/bold_heading2" />
+
+                        <TextView
+                            android:id="@+id/tvTotalDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:fontFamily="@font/gilroy_semibold"
+                            android:text="Rs. 100"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/bold_heading2" />
+
+                    </RelativeLayout>
+
+                    <!--Line Break-->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#11838383" />
+
+                    <!--Total Payment-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:fontFamily="@font/gilroy_semibold"
+                            android:text="Total Payment"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/bold_heading2" />
+
+                        <TextView
+                            android:id="@+id/tvTotalPayment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:fontFamily="@font/gilroy_semibold"
+                            android:text="Rs. 800"
+                            android:textAllCaps="true"
+                            android:textColor="@color/primary_color"
+                            android:textSize="@dimen/bold_heading2" />
+
+                    </RelativeLayout>
+
+                    <!--Line Break-->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#11838383" />
+
+                </LinearLayout>
+
+                <!--Payment Page Here-->
+            </LinearLayout>
+        </ScrollView>
+
+        <!--Pay Now Button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPayNow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp"
+            style="@style/CustomButtonStyle"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="Pay Now"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

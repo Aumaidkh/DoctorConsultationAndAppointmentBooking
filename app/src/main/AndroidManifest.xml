@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doctorce">
         <activity
+            android:name=".feature_book_appointment.presentation.ui.appointment.AppointmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature_book_appointment.presentation.ui.appointment.AddPatientDetailsActivity"
             android:exported="false" />
         <activity

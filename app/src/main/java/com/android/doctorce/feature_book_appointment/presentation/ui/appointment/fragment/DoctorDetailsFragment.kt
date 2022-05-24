@@ -1,56 +1,54 @@
-package com.android.doctorce.feature_book_appointment.presentation.ui.doctor_details
+package com.android.doctorce.feature_book_appointment.presentation.ui.appointment.fragment
 
 import android.content.Intent
-import android.icu.text.SimpleDateFormat
-import android.icu.util.Calendar
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
 import com.android.doctorce.R
-import com.android.doctorce.databinding.ActivityDoctorDetailsBinding
-import com.android.doctorce.feature_book_appointment.domain.model.BookAppointmentModel
+import com.android.doctorce.databinding.FragmentDoctorDetailsBinding
 import com.android.doctorce.feature_book_appointment.domain.model.DoctorModel
 import com.android.doctorce.feature_book_appointment.presentation.ui.appointment.AddPatientDetailsActivity
 import com.android.doctorce.feature_book_appointment.presentation.ui.common.ProcessBooking
 import com.android.doctorce.feature_book_appointment.presentation.ui.common.SharedViewModel
 import com.android.doctorce.feature_book_appointment.presentation.ui.common.SharedViewModelEvent
-import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_counseling.BookAppointmentActivity
+import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_details.DoctorDetailsViewModel
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_details.adapters.AppointmentDateAdapter
-import com.android.doctorce.feature_book_appointment.presentation.util.Constants.NEW_APPOINTMENT
-import com.android.doctorce.feature_book_appointment.presentation.util.HelperMethods.getCalculatedDate
 import com.bumptech.glide.Glide
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
-import java.util.*
 
-private const val TAG = "DoctorDetailsActivity"
+private const val TAG = "DoctorDetailsFragment"
 @AndroidEntryPoint
-class DoctorDetailsActivity : AppCompatActivity() {
-    private var _binding: ActivityDoctorDetailsBinding? = null
+class DoctorDetailsFragment : Fragment() {
+
+    private var _binding: FragmentDoctorDetailsBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: DoctorDetailsViewModel by viewModels()
-    private val bookingViewModel: SharedViewModel by viewModels()
+    private val bookingViewModel: SharedViewModel by activityViewModels()
 
     private lateinit var appointmentDateAdapter: AppointmentDateAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        _binding = DataBindingUtil.setContentView(this,R.layout.activity_doctor_details)
-
-        // Receive doctor id from previous activity and make a post request
-       // doctor = intent?.getParcelableExtra(DOCTOR)
-       // populateUi(doctor)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_doctor_details,container,false)
         appointmentDateAdapter = AppointmentDateAdapter()
         setupClickListeners()
+        return binding.root
     }
 
     override fun onResume() {
@@ -62,7 +60,8 @@ class DoctorDetailsActivity : AppCompatActivity() {
     private fun setupAppointmentDateRecyclerView(){
         binding.rvDateAndDay.apply {
             adapter = appointmentDateAdapter
-            layoutManager = LinearLayoutManager(this@DoctorDetailsActivity,HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(context,
+                LinearLayoutManager.HORIZONTAL, false)
         }
     }
 
@@ -102,8 +101,7 @@ class DoctorDetailsActivity : AppCompatActivity() {
             bookingViewModel.channel.collect { event ->
                 when(event){
                     is ProcessBooking.Success -> {
-                        val addPatientDetailsIntent = Intent(this@DoctorDetailsActivity, AddPatientDetailsActivity::class.java)
-                        startActivity(addPatientDetailsIntent)
+                        findNavController().navigate(R.id.action_doctorDetailsFragment_to_patientDetailsFragment)
                     }
                 }
             }
@@ -116,7 +114,7 @@ class DoctorDetailsActivity : AppCompatActivity() {
     private fun populateUi(doctorModel: DoctorModel?){
         doctorModel.let { doctor ->
             binding.apply {
-                Glide.with(this@DoctorDetailsActivity)
+                Glide.with(requireContext())
                     .load(doctor?.imageUrl)
                     .into(ivDoctor)
 
@@ -140,7 +138,7 @@ class DoctorDetailsActivity : AppCompatActivity() {
     private fun setupClickListeners(){
         binding.apply {
             btnBack.setOnClickListener {
-                finish()
+
             }
 
             /*
@@ -149,7 +147,8 @@ class DoctorDetailsActivity : AppCompatActivity() {
             btnBookAppointment.setOnClickListener {
 
                 if (appointmentDateAdapter.selectedItem != null){
-                    bookingViewModel.onEvent(SharedViewModelEvent.SaveDoctorDetails(
+                    bookingViewModel.onEvent(
+                        SharedViewModelEvent.SaveDoctorDetails(
                         userId = 1,
                         doctorId = 2,
                         appointmentDate = appointmentDateAdapter.selectedItem!!
@@ -163,13 +162,13 @@ class DoctorDetailsActivity : AppCompatActivity() {
 //                    doctorId = 2, // will be passed from prevActivity
 //                    appointmentDate = appointmentDateAdapter.selectedItem
 //                )
-               // val addPatientDetailsIntent = Intent(this@DoctorDetailsActivity, AddPatientDetailsActivity::class.java)
-               // addPatientDetailsIntent.putExtra(NEW_APPOINTMENT,newAppointment)
-               // startActivity(addPatientDetailsIntent)
+                // val addPatientDetailsIntent = Intent(this@DoctorDetailsActivity, AddPatientDetailsActivity::class.java)
+                // addPatientDetailsIntent.putExtra(NEW_APPOINTMENT,newAppointment)
+                // startActivity(addPatientDetailsIntent)
             }
 
             btnCalendar.setOnClickListener {
-                supportFragmentManager.let {
+                requireActivity().supportFragmentManager.let {
                     getMaterialDataPicker().show(it,"DatePicker")
                 }
             }
@@ -177,8 +176,8 @@ class DoctorDetailsActivity : AppCompatActivity() {
     }
 
     private fun showCustomSnackBarWithMessage(message: String){
-        val snackBar = Snackbar.make(binding.root,message,Snackbar.LENGTH_SHORT)
-        snackBar.view.setBackgroundColor(getColor(R.color.snackbar_background_color))
+        val snackBar = Snackbar.make(binding.root,message, Snackbar.LENGTH_SHORT)
+        snackBar.view.setBackgroundColor(resources.getColor(R.color.snackbar_background_color))
         snackBar.show()
     }
 
@@ -187,4 +186,5 @@ class DoctorDetailsActivity : AppCompatActivity() {
             .setTitleText("Select date")
             .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
             .build()
+
 }
