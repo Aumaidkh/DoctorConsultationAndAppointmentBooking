@@ -3,6 +3,7 @@ package com.android.doctorce.feature_book_appointment.presentation.ui.appointmen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
@@ -13,6 +14,8 @@ import com.android.doctorce.R
 import com.android.doctorce.databinding.ActivityAddPatientDetailsBinding
 import com.android.doctorce.feature_book_appointment.domain.model.BookAppointmentModel
 import com.android.doctorce.feature_book_appointment.presentation.ui.doctor_counseling.BookAppointmentActivity
+import com.android.doctorce.feature_book_appointment.presentation.util.Constants.FEMALE
+import com.android.doctorce.feature_book_appointment.presentation.util.Constants.MALE
 import com.android.doctorce.feature_book_appointment.presentation.util.Constants.NEW_APPOINTMENT
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -24,6 +27,7 @@ class AddPatientDetailsActivity : AppCompatActivity() {
 
     private val viewModel: AddPatientDetailsViewModel by viewModels()
     private var state: BookingFormState? = null
+
 
     private var pendingAppointment: BookAppointmentModel? = null
 
@@ -55,10 +59,12 @@ class AddPatientDetailsActivity : AppCompatActivity() {
     private fun setupInputFields(){
         binding.apply {
             maleCard.setOnClickListener {
-                viewModel.onEvent(AddPatientDetailsEvent.SelectedGender(true))
+                highlightSelectedGenderCard(it)
+                viewModel.onEvent(AddPatientDetailsEvent.SelectedGender(true,MALE))
             }
             femaleCard.setOnClickListener {
-                viewModel.onEvent(AddPatientDetailsEvent.SelectedGender(true))
+                highlightSelectedGenderCard(it)
+                viewModel.onEvent(AddPatientDetailsEvent.SelectedGender(true,FEMALE))
             }
             etFullName.doOnTextChanged { fullName, _, _, _ ->
                 viewModel.onEvent(AddPatientDetailsEvent.FullNameChanged(fullName.toString()))
@@ -73,6 +79,15 @@ class AddPatientDetailsActivity : AppCompatActivity() {
                 viewModel.onEvent(AddPatientDetailsEvent.PhoneNumberChanged(phoneNumber.toString()))
             }
         }
+    }
+
+    private fun highlightSelectedGenderCard(selectedCard: View){
+        // Reset Previous selections
+        binding.apply {
+            maleCard.setBackgroundResource(R.drawable.card_unselected_background)
+            femaleCard.setBackgroundResource(R.drawable.card_unselected_background)
+        }
+        selectedCard.setBackgroundResource(R.drawable.card_selected_background)
     }
 
     private fun setupErrors(state: BookingFormState) {

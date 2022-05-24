@@ -5,7 +5,7 @@ sealed class AddPatientDetailsEvent{
     data class DateOfBirthChanged(val dob: String): AddPatientDetailsEvent()
     data class AddressChanged(val address: String): AddPatientDetailsEvent()
     data class PhoneNumberChanged(val phone: String): AddPatientDetailsEvent()
-    data class SelectedGender(val isGenderSelected: Boolean): AddPatientDetailsEvent()
+    data class SelectedGender(val isGenderSelected: Boolean, val gender: String? = null): AddPatientDetailsEvent()
 
     object Submit: AddPatientDetailsEvent()
 }

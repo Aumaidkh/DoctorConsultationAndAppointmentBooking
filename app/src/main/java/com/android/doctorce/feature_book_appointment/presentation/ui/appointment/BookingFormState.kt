@@ -9,6 +9,7 @@ data class BookingFormState(
     val addressError: String? = null,
     val phoneNumber: String = "",
     val phoneNumberError: String? = null,
+    val gender: String? = null,
     val genderSelected: Boolean = false,
     val genderError: String? = null
 )

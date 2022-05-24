@@ -34,7 +34,7 @@ class AddPatientDetailsViewModel @Inject constructor(
                 state.value = state.value.copy(phoneNumber = event.phone)
             }
             is AddPatientDetailsEvent.SelectedGender -> {
-                state.value = state.value.copy(genderSelected = event.isGenderSelected)
+                state.value = state.value.copy(genderSelected = event.isGenderSelected, gender = event.gender)
             }
             is AddPatientDetailsEvent.Submit -> {
                 submitData()
@@ -57,14 +57,15 @@ class AddPatientDetailsViewModel @Inject constructor(
             phoneResult
         ).any { !it.successful }
 
-        state.value = state.value.copy(
-            fullNameError = fullNameResult.errorMessage,
-            genderError = genderResult.errorMessage,
-            dateOfBirthError = dobResult.errorMessage,
-            addressError = addressResult.errorMessage,
-            phoneNumberError = phoneResult.errorMessage,
-        )
+
         if (hasError){
+            state.value = state.value.copy(
+                fullNameError = fullNameResult.errorMessage,
+                genderError = genderResult.errorMessage,
+                dateOfBirthError = dobResult.errorMessage,
+                addressError = addressResult.errorMessage,
+                phoneNumberError = phoneResult.errorMessage,
+            )
             return
         }
 
