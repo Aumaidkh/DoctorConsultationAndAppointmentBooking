@@ -66,6 +66,8 @@
         <item name="backgroundColor">@color/white</item>
         <item name="colorControlActivated">@color/light_primary_color</item>
         <item name="boxStrokeColor">@color/light_primary_color</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxStrokeWidth">0dp</item>
     </style>
 
     <!--Custom Promo Code Theme-->

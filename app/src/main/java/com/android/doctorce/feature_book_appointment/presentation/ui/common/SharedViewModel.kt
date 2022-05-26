@@ -48,7 +48,6 @@ class SharedViewModel: ViewModel() {
             }
 
         }
-
         viewModelScope.launch {
             _channel.send(ProcessBooking.Success)
         }

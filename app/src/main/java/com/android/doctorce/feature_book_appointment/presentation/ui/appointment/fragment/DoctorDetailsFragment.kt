@@ -138,7 +138,7 @@ class DoctorDetailsFragment : Fragment() {
     private fun setupClickListeners(){
         binding.apply {
             btnBack.setOnClickListener {
-
+                requireActivity().finish()
             }
 
             /*
@@ -157,14 +157,6 @@ class DoctorDetailsFragment : Fragment() {
                 }
 
                 showCustomSnackBarWithMessage("Something went wrong")
-//                val newAppointment = BookAppointmentModel(
-//                    userId = 1, // has to be passed from prefs
-//                    doctorId = 2, // will be passed from prevActivity
-//                    appointmentDate = appointmentDateAdapter.selectedItem
-//                )
-                // val addPatientDetailsIntent = Intent(this@DoctorDetailsActivity, AddPatientDetailsActivity::class.java)
-                // addPatientDetailsIntent.putExtra(NEW_APPOINTMENT,newAppointment)
-                // startActivity(addPatientDetailsIntent)
             }
 
             btnCalendar.setOnClickListener {

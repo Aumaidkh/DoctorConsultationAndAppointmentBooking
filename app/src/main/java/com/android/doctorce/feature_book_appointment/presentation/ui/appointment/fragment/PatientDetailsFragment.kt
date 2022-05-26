@@ -24,6 +24,7 @@ import com.android.doctorce.feature_book_appointment.presentation.util.Constants
 import com.android.doctorce.feature_book_appointment.presentation.util.asString
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class PatientDetailsFragment : Fragment() {
@@ -130,6 +131,8 @@ class PatientDetailsFragment : Fragment() {
                                 state!!.phoneNumber
                             )
                         ))
+                        findNavController().navigate(R.id.action_patientDetailsFragment_to_appointmentTypeSelectionFragment)
+
                     }
                 }
             }
@@ -142,15 +145,7 @@ class PatientDetailsFragment : Fragment() {
             }
         }
 
-        lifecycleScope.launchWhenStarted {
-            bookingViewModel.channel.collect { event ->
-                when(event){
-                    is ProcessBooking.Success -> {
-                        findNavController().navigate(R.id.action_patientDetailsFragment_to_appointmentTypeSelectionFragment)
-                    }
-                }
-            }
-        }
+
     }
 
     override fun onDestroy() {

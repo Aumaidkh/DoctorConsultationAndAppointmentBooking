@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/gilroy_semibold"
-                android:text="Book Appointment"
+                android:text="@string/book_appointment"
                 android:textColor="@color/black"
                 android:textSize="@dimen/bold_heading1" />
 
@@ -67,8 +67,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_medium"
-                    android:text="Please fill out the form for appointment"
-                    android:textColor="#DE000000"
+                    android:text="@string/please_fill_out_the_form_for_appointment"
+                    android:textColor="#AB000000"
                     android:textSize="@dimen/bold_heading1" />
 
                 <TextView
@@ -76,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_medium"
-                    android:text="Full Name *"
+                    android:text="@string/full_name"
                     android:textColor="@color/primary_color"
                     android:textSize="16sp" />
 
@@ -91,16 +91,17 @@
                     app:hintEnabled="false"
                     app:boxBackgroundColor="@color/white"
                     app:boxStrokeColor="@color/light_primary_color"
-                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="1dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
+                        android:imeOptions="actionNext"
                         android:id="@+id/etFullName"
                         android:fontFamily="@font/gilroy_medium"
-                        android:hint="Enter your name"
+                        android:hint="@string/enter_your_name"
                         android:inputType="textPersonName"
                         android:textColorHint="@color/secondary_text_color" />
 
@@ -112,7 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_medium"
-                    android:text="Gender*"
+                    android:text="@string/gender"
                     android:textColor="@color/primary_color"
                     android:textSize="16sp" />
 
@@ -147,22 +148,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <ImageView
-                                android:src="@drawable/ic_gender_male"
-                                android:layout_gravity="center"
-                                app:tint="@color/primary_color"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"/>
+
 
                             <TextView
+                                app:drawableTint="@color/primary_color"
                                 android:layout_marginTop="5dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/gilroy_medium"
-                                android:text="Male"
+                                android:text="@string/male"
                                 android:textColor="@color/primary_color"
-                                android:textSize="16sp" />
+                                android:textSize="16sp"
+                                app:drawableTopCompat="@drawable/ic_gender_male" />
 
                         </LinearLayout>
 
@@ -189,12 +187,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <ImageView
-                                android:src="@drawable/ic_gender_female"
-                                android:layout_gravity="center"
-                                app:tint="@color/primary_color"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"/>
 
                             <TextView
                                 android:layout_marginTop="5dp"
@@ -202,9 +194,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/gilroy_medium"
-                                android:text="Female"
+                                android:text="@string/female"
                                 android:textColor="@color/primary_color"
-                                android:textSize="16sp" />
+                                android:textSize="16sp"
+                                app:drawableTopCompat="@drawable/ic_gender_female"
+                                app:drawableTint="@color/light_primary_color" />
 
                         </LinearLayout>
 
@@ -212,19 +206,13 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                </LinearLayout>
 
                 <TextView
                     android:layout_marginTop="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_medium"
-                    android:text="Date of birth*"
+                    android:text="@string/date_of_birth"
                     android:textColor="@color/primary_color"
                     android:textSize="16sp" />
 
@@ -239,16 +227,18 @@
                     android:theme="@style/PatientDetailsInputTheme"
                     app:boxBackgroundColor="@color/white"
                     app:boxStrokeColor="@color/light_primary_color"
-                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="1dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etDateOfBirth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
+                        android:imeOptions="actionNext"
                         android:textSize="17sp"
                         android:fontFamily="@font/gilroy_medium"
-                        android:hint="dd/mm/yyyy"
+                        android:hint="@string/dd_mm_yyyy"
                         android:maxLength="10"
                         android:inputType="date"
                         android:textColorHint="@color/secondary_text_color" />
@@ -260,7 +250,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_medium"
-                    android:text="Address*"
+                    android:text="@string/address"
                     android:textColor="@color/primary_color"
                     android:textSize="16sp" />
 
@@ -274,7 +264,7 @@
                     app:hintEnabled="false"
                     app:boxBackgroundColor="@color/white"
                     app:boxStrokeColor="@color/light_primary_color"
-                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidth="0dp"
                     android:theme="@style/PatientDetailsInputTheme"
                     app:boxStrokeWidthFocused="1dp">
 
@@ -283,9 +273,10 @@
                         android:maxLines="2"
                         android:textSize="17sp"
                         android:layout_width="match_parent"
+                        android:imeOptions="actionNext"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/gilroy_medium"
-                        android:hint="E.g: Janglat mandi, Anantnag, 192101"
+                        android:hint="@string/e_g_janglat_mandi_anantnag_192101"
                         android:inputType="textPostalAddress"
                         android:textColorHint="@color/secondary_text_color" />
 
@@ -296,7 +287,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_medium"
-                    android:text="Contact Number*"
+                    android:text="@string/contact_number"
                     android:textColor="@color/primary_color"
                     android:textSize="16sp" />
 
@@ -310,16 +301,17 @@
                     app:hintEnabled="false"
                     app:boxBackgroundColor="@color/white"
                     app:boxStrokeColor="@color/light_primary_color"
-                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="1dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:imeOptions="actionGo"
                         android:maxLength="10"
                         android:fontFamily="@font/gilroy_medium"
-                        android:hint="E.g: 9906612345"
+                        android:hint="@string/e_g_9906612345"
                         android:textSize="17sp"
                         android:inputType="phone"
                         android:textColorHint="@color/secondary_text_color" />
@@ -338,11 +330,11 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:text="Save Details"
+            android:text="@string/save_details"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scrollview" />
+             />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

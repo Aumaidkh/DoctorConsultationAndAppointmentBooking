@@ -30,4 +30,18 @@
     <string name="invalid_phone_number">Invalid Phone Number</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="book_appointment">Book Appointment</string>
+    <string name="please_fill_out_the_form_for_appointment">Please fill out the form for appointment</string>
+    <string name="full_name">Full Name *</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="gender">Gender*</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="date_of_birth">Date of birth*</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
+    <string name="address">Address*</string>
+    <string name="e_g_janglat_mandi_anantnag_192101">E.g: Janglat mandi, Anantnag, 192101</string>
+    <string name="contact_number">Contact Number*</string>
+    <string name="e_g_9906612345">E.g: 9906612345</string>
+    <string name="save_details">Save Details</string>
 </resources>
