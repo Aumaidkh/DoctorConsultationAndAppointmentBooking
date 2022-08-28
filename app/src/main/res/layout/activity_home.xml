@@ -11,6 +11,24 @@
         android:layout_height="match_parent">
 
 
+        <!--Internet Connectivity Status TextView-->
+        <TextView
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tvConnectionStatus"
+            android:layout_width="match_parent"
+            android:text="No internet Connection"
+            android:textSize="14sp"
+            android:padding="3.4dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:elevation="2dp"
+            android:background="@color/error"
+            android:layout_height="wrap_content"
+            app:drawableTint="@color/white"
+            app:drawableStartCompat="@drawable/ic_clear_black_24dp" />
+
+
         <fragment
             android:id="@+id/navHostFragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -20,7 +38,7 @@
             app:layout_constraintBottom_toTopOf="@+id/bottomNavMenu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvConnectionStatus"
             app:navGraph="@navigation/home_nav_graph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
